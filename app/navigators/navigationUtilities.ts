@@ -1,14 +1,7 @@
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { BackHandler, Platform } from "react-native"
-import { NavigationState, createNavigationContainerRef } from "@react-navigation/native"
-import Config from "../config"
-import type { PersistNavigationConfig } from "../config/config.base"
-import { useIsMounted } from "../utils/hooks/useIsMounted"
-import type { AppStackParamList, NavigationProps } from "./AppNavigator"
-
-import * as storage from "../utils/storage"
-
-type Storage = typeof storage
+import { createNavigationContainerRef, NavigationState } from "@react-navigation/native"
+import type { AppStackParamList } from "./AppNavigator"
 
 /**
  * Reference to the root App Navigator.
@@ -85,66 +78,6 @@ export function useBackButtonHandler(canExit: (routeName: string) => boolean) {
     // Unsubscribe when we're done
     return () => BackHandler.removeEventListener("hardwareBackPress", onBackPress)
   }, [])
-}
-
-/**
- * This helper function will determine whether we should enable navigation persistence
- * based on a config setting and the __DEV__ environment (dev or prod).
- */
-function navigationRestoredDefaultState(persistNavigation: PersistNavigationConfig) {
-  if (persistNavigation === "always") return false
-  if (persistNavigation === "dev" && __DEV__) return false
-  if (persistNavigation === "prod" && !__DEV__) return false
-
-  // all other cases, disable restoration by returning true
-  return true
-}
-
-/**
- * Custom hook for persisting navigation state.
- */
-export function useNavigationPersistence(storage: Storage, persistenceKey: string) {
-  const [initialNavigationState, setInitialNavigationState] =
-    useState<NavigationProps["initialState"]>()
-  const isMounted = useIsMounted()
-
-  const initNavState = navigationRestoredDefaultState(Config.persistNavigation)
-  const [isRestored, setIsRestored] = useState(initNavState)
-
-  const routeNameRef = useRef<keyof AppStackParamList | undefined>()
-
-  const onNavigationStateChange: NavigationProps["onStateChange"] = (state) => {
-    const previousRouteName = routeNameRef.current
-    const currentRouteName = getActiveRouteName(state)
-
-    if (previousRouteName !== currentRouteName) {
-      // track screens.
-      if (__DEV__) {
-        console.tron.log(currentRouteName)
-      }
-    }
-
-    // Save the current route name for later comparison
-    routeNameRef.current = currentRouteName
-
-    // Persist state to storage
-    storage.save(persistenceKey, state)
-  }
-
-  const restoreState = async () => {
-    try {
-      const state = (await storage.load(persistenceKey)) as NavigationProps["initialState"] | null
-      if (state) setInitialNavigationState(state)
-    } finally {
-      if (isMounted()) setIsRestored(true)
-    }
-  }
-
-  useEffect(() => {
-    if (!isRestored) restoreState()
-  }, [isRestored])
-
-  return { onNavigationStateChange, restoreState, isRestored, initialNavigationState }
 }
 
 /**
