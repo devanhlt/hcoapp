@@ -3,29 +3,44 @@
 
 import { Platform } from "react-native"
 import {
-  SpaceGrotesk_300Light as spaceGroteskLight,
-  SpaceGrotesk_400Regular as spaceGroteskRegular,
-  SpaceGrotesk_500Medium as spaceGroteskMedium,
-  SpaceGrotesk_600SemiBold as spaceGroteskSemiBold,
-  SpaceGrotesk_700Bold as spaceGroteskBold,
-} from "@expo-google-fonts/space-grotesk"
+  MontserratAlternates_300Light as montserratAlternatesLight,
+  MontserratAlternates_300Light_Italic as montserratAlternatesLightItalic,
+  MontserratAlternates_400Regular as montserratAlternatesRegular,
+  MontserratAlternates_400Regular_Italic as montserratAlternatesRegularItalic,
+  MontserratAlternates_500Medium as montserratAlternatesMedium,
+  MontserratAlternates_500Medium_Italic as montserratAlternatesMediumItalic,
+  MontserratAlternates_600SemiBold as montserratAlternatesSemiBold,
+  MontserratAlternates_600SemiBold_Italic as montserratAlternatesSemiBoldItalic,
+  MontserratAlternates_700Bold as montserratAlternatesBold,
+  MontserratAlternates_700Bold_Italic as montserratAlternatesBoldItalic
+} from "@expo-google-fonts/montserrat-alternates"
 
 export const customFontsToLoad = {
-  spaceGroteskLight,
-  spaceGroteskRegular,
-  spaceGroteskMedium,
-  spaceGroteskSemiBold,
-  spaceGroteskBold,
+  montserratAlternatesLight,
+  montserratAlternatesLightItalic,
+  montserratAlternatesRegular,
+  montserratAlternatesRegularItalic,
+  montserratAlternatesMedium,
+  montserratAlternatesMediumItalic,
+  montserratAlternatesSemiBold,
+  montserratAlternatesSemiBoldItalic,
+  montserratAlternatesBold,
+  montserratAlternatesBoldItalic,
 }
 
 const fonts = {
-  spaceGrotesk: {
+  montserratAlternates: {
     // Cross-platform Google font.
-    light: "spaceGroteskLight",
-    normal: "spaceGroteskRegular",
-    medium: "spaceGroteskMedium",
-    semiBold: "spaceGroteskSemiBold",
-    bold: "spaceGroteskBold",
+    light: "montserratAlternatesLight",
+    ilight: "montserratAlternatesLightItalic",
+    normal: "montserratAlternatesRegular",
+    inormal: "montserratAlternatesRegularItalic",
+    medium: "montserratAlternatesMedium",
+    imedium: "montserratAlternatesMediumItalic",
+    semiBold: "montserratAlternatesSemiBold",
+    isemiBold: "montserratAlternatesSemiBoldItalic",
+    bold: "montserratAlternatesBold",
+    ibold: "montserratAlternatesBoldItalic",
   },
   helveticaNeue: {
     // iOS only font.
@@ -59,7 +74,7 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: fonts.spaceGrotesk,
+  primary: fonts.montserratAlternates,
   /**
    * An alternate font used for perhaps titles and stuff.
    */

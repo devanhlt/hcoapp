@@ -1,5 +1,4 @@
 import { useScrollToTop } from "@react-navigation/native"
-import { StatusBar, StatusBarProps } from "expo-status-bar"
 import React, { useRef, useState } from "react"
 import {
   KeyboardAvoidingView,
@@ -13,13 +12,18 @@ import {
   ViewStyle,
 } from "react-native"
 import { colors } from "../theme"
-import { ExtendedEdge, useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"
+import { ExtendedEdge, useSafeAreaInsetsStyle } from "../utils/hooks/useSafeAreaInsetsStyle"
+import { SVCStatusBar } from "./Statubar"
+import { StatusBarProps } from "expo-status-bar"
 
 interface BaseScreenProps {
   /**
    * Children components.
    */
   children?: React.ReactNode
+
+  headerComponent?: React.ReactNode
+
   /**
    * Style for the outer content container useful for padding & margin.
    */
@@ -39,7 +43,7 @@ interface BaseScreenProps {
   /**
    * Status bar setting. Defaults to dark.
    */
-  statusBarStyle?: "light" | "dark"
+  statusBarStyle?: "default" | "light-content" | "dark-content"
   /**
    * By how much should we offset the keyboard? Defaults to 0.
    */
@@ -48,6 +52,13 @@ interface BaseScreenProps {
    * Pass any additional props directly to the StatusBar component.
    */
   StatusBarProps?: StatusBarProps
+
+  statusBarColor?: string
+
+  showStatusBar?: boolean
+
+  showHeader?: boolean
+
   /**
    * Pass any additional props directly to the KeyboardAvoidingView component.
    */
@@ -57,6 +68,7 @@ interface BaseScreenProps {
 interface FixedScreenProps extends BaseScreenProps {
   preset?: "fixed"
 }
+
 interface ScrollScreenProps extends BaseScreenProps {
   preset?: "scroll"
   /**
@@ -99,7 +111,7 @@ function useAutoPreset(props: AutoScreenProps) {
     if (scrollViewHeight.current === null || scrollViewContentHeight.current === null) return
 
     // check whether content fits the screen then toggle scroll state according to it
-    const contentFitsScreen = (function () {
+    const contentFitsScreen = (function() {
       if (point) {
         return scrollViewContentHeight.current < scrollViewHeight.current - point
       } else {
@@ -194,14 +206,19 @@ export function Screen(props: ScreenProps) {
     keyboardOffset = 0,
     safeAreaEdges,
     StatusBarProps,
-    statusBarStyle = "dark",
+    statusBarStyle = "default",
+    statusBarColor = "transparent",
+    showStatusBar = true,
+    headerComponent,
   } = props
 
   const $containerInsets = useSafeAreaInsetsStyle(safeAreaEdges)
 
   return (
     <View style={[$containerStyle, { backgroundColor }, $containerInsets]}>
-      <StatusBar style={statusBarStyle} {...StatusBarProps} />
+      {(showStatusBar) &&
+        <SVCStatusBar statusBarStyle={statusBarStyle} backgroundColor={statusBarColor} {...StatusBarProps} />}
+      {headerComponent}
 
       <KeyboardAvoidingView
         behavior={isIos ? "padding" : undefined}
@@ -238,4 +255,5 @@ const $outerStyle: ViewStyle = {
 const $innerStyle: ViewStyle = {
   justifyContent: "flex-start",
   alignItems: "stretch",
+  flex: 1,
 }
