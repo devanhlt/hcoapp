@@ -1,19 +1,19 @@
 const Environments = {
   dev: {
     catchErrors: "alway",
-    API_URL: "https://api.rss2json.com/v1/",
+    API_URL: "https://system-test.baspro.vn",
   },
   test: {
     catchErrors: "alway",
-    API_URL: "https://api.rss2json.com/v1/",
+    API_URL: "https://system-test.baspro.vn",
   },
-  stag: {
+  staging: {
     catchErrors: "alway",
-    API_URL: "https://api.rss2json.com/v1/",
+    API_URL: "https://system-test.baspro.vn",
   },
   prod: {
     catchErrors: "alway",
-    API_URL: "https://api.rss2json.com/v1/",
+    API_URL: "https://system-test.baspro.vn",
   },
 }
 

@@ -1,6 +1,7 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 import { EnvironmentStoreModel } from "./EnvironmentStore"
 import { AuthenticationStoreModel } from "./AuthenticationStore"
+import { LoadingStoreModel } from "./LoadingStore"
 
 /**
  * A RootStore model.
@@ -8,6 +9,7 @@ import { AuthenticationStoreModel } from "./AuthenticationStore"
 export const RootStoreModel = types.model("RootStore").props({
   environmentStore: types.optional(EnvironmentStoreModel, { currentEnvironment: "prod" }),
   authenticationStore: types.optional(AuthenticationStoreModel, {}),
+  loadingStore: types.optional(LoadingStoreModel, {}),
 })
 
 /**

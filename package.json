@@ -16,7 +16,9 @@
     "release:android": "cd android && rm -rf app/src/main/res/drawable-* && ./gradlew assembleRelease && cd - && echo 'APK generated in ./android/app/build/outputs/apk/release/app-release.apk'",
     "clean": "npx react-native-clean-project",
     "clean-all": "npx react-native clean-project-auto",
-    "gen-screen": "npx ignite-cli generate screen"
+    "gen-screen": "npx ignite-cli generate screen",
+    "gen-component": "npx ignite-cli generate component",
+    "gen-module": "npx ignite-cli generate module"
   },
   "overrides": {
     "react-error-overlay": "6.0.9"

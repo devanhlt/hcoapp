@@ -1,21 +1,26 @@
 import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { TextStyle, View, ViewStyle } from "react-native"
-import { Header, Screen, Text } from "../components"
+import { Button, Screen, Text } from "../components"
 import { colors, spacing } from "../theme"
 import { useSafeAreaInsetsStyle } from "../utils/hooks/useSafeAreaInsetsStyle"
 import { AppStackScreenProps } from "../navigators"
+import { useStores } from "../models"
 
 interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {
 }
 
 export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen() {
   const $bottomContainerInsets = useSafeAreaInsetsStyle(["bottom"])
+  const { authenticationStore: { logout } } = useStores()
 
   return (
-    <Screen headerComponent={<Header title={"Home screen"} />}
-            statusBarStyle={"dark-content"}
-            statusBarColor={"white"}>
+    <Screen
+      style={{ backgroundColor: colors.palette.neutral100, padding: spacing.xs }}
+      statusBarStyle={"dark-content"}
+      statusBarColor={"white"}
+      safeAreaEdges={["bottom"]}
+    >
       <View style={$topContainer}>
         <Text
           testID="welcome-heading"
@@ -29,6 +34,7 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
       <View style={[$bottomContainer, $bottomContainerInsets]}>
         <Text tx="welcomeScreen.postscript" size="md" />
       </View>
+      <Button text={"LOGOUT"} onPress={logout} />
     </Screen>
   )
 })
