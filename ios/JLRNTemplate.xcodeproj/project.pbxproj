@@ -527,6 +527,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = JLRNTemplate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JL-RN-Template";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,6 +555,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = JLRNTemplate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JL-RN-Template";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

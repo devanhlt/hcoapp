@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "android": "react-native run-android --active-arch-only",
     "format": "prettier --write \"app/**/*.{js,jsx,json,md,ts,tsx}\"",
+    "start": "react-native start",
     "patch": "patch-package",
     "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081",
     "postinstall": "node ./bin/postInstall",
