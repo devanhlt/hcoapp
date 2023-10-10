@@ -113,9 +113,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.sachvechai.app"
+    namespace "vn.baspro.parkingapp"
     defaultConfig {
-        applicationId "com.sachvechai.app"
+        applicationId "vn.baspro.parkingapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

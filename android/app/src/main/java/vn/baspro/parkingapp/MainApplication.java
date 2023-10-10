@@ -1,4 +1,4 @@
-package com.sachvechai.app;
+package vn.baspro.parkingapp;
 
 import android.app.Application;
 import android.content.res.Configuration;

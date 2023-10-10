@@ -1,10 +1,10 @@
 {
-  "name": "JL-RN-Template",
-  "displayName": "JL-RN-Template",
+  "name": "Parking App",
+  "displayName": "Parking App",
   "expo": {
-    "name": "JL-RN-Template",
-    "slug": "JL-RN-Template",
-    "scheme": "jl-rn-template",
+    "name": "Parking App",
+    "slug": "Parking App",
+    "scheme": "parkingapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",
@@ -22,7 +22,7 @@
     ],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
-      "package": "com.sachvechai.app",
+      "package": "vn.baspro.parkingapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
         "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
@@ -36,7 +36,7 @@
     "ios": {
       "icon": "./assets/images/app-icon-ios.png",
       "supportsTablet": true,
-      "bundleIdentifier": "com.sachvechai.app",
+      "bundleIdentifier": "vn.baspro.parkingapp",
       "splash": {
         "image": "./assets/images/splash-logo-ios-mobile.png",
         "tabletImage": "./assets/images/splash-logo-ios-tablet.png",
