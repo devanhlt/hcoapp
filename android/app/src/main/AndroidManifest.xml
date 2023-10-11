@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="vn.baspro.app.dvgo">
+  package="vn.baspro.parkingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

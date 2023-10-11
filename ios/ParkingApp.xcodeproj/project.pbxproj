@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* DaiVietGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DaiVietGoTests.m */; };
+		00E356F31AD99517003FC87E /* ParkingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ParkingAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2215ACBC1E62C44583DB69A9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AFED2E09CC2E86D1338C0F /* ExpoModulesProvider.swift */; };
-		3CA8A0B05BB12196F701454A /* libPods-DaiVietGo-DaiVietGoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1DF0E87833F20706DDDB5A /* libPods-DaiVietGo-DaiVietGoTests.a */; };
+		3CA8A0B05BB12196F701454A /* libPods-ParkingApp-ParkingAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1DF0E87833F20706DDDB5A /* libPods-ParkingApp-ParkingAppTests.a */; };
 		400EB2C1E1807E6CBC68B7AB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C7CAC20F43043B74A11F2E1B /* libPods-DaiVietGo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9FD6B5CD51F030841DCA6B /* libPods-DaiVietGo.a */; };
+		C7CAC20F43043B74A11F2E1B /* libPods-ParkingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9FD6B5CD51F030841DCA6B /* libPods-ParkingApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,31 +24,31 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = DaiVietGo;
+			remoteInfo = "ParkingApp";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* DaiVietGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaiVietGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ParkingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkingAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* DaiVietGoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaiVietGoTests.m; sourceTree = "<group>"; };
-		0B1DF0E87833F20706DDDB5A /* libPods-DaiVietGo-DaiVietGoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DaiVietGo-DaiVietGoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* DaiVietGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaiVietGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DaiVietGo/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = DaiVietGo/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DaiVietGo/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DaiVietGo/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DaiVietGo/main.m; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-DaiVietGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaiVietGo.debug.xcconfig"; path = "Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo.debug.xcconfig"; sourceTree = "<group>"; };
-		53FB1480ECF4CB2FCFCE6955 /* Pods-DaiVietGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaiVietGoTests.release.xcconfig"; path = "Target Support Files/Pods-DaiVietGoTests/Pods-DaiVietGoTests.release.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-DaiVietGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaiVietGo.release.xcconfig"; path = "Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-DaiVietGo-DaiVietGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaiVietGo-DaiVietGoTests.debug.xcconfig"; path = "Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DaiVietGo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-DaiVietGo-DaiVietGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaiVietGo-DaiVietGoTests.release.xcconfig"; path = "Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests.release.xcconfig"; sourceTree = "<group>"; };
-		951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-DaiVietGo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		C428D8BECE5DAB8E7A85BA45 /* Pods-DaiVietGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaiVietGoTests.debug.xcconfig"; path = "Target Support Files/Pods-DaiVietGoTests/Pods-DaiVietGoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D5AFED2E09CC2E86D1338C0F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		EB9FD6B5CD51F030841DCA6B /* libPods-DaiVietGo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DaiVietGo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* ParkingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ParkingAppTests.m"; sourceTree = "<group>"; };
+		0B1DF0E87833F20706DDDB5A /* libPods-ParkingApp-ParkingAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParkingApp-ParkingAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* ParkingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkingApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "ParkingApp/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "ParkingApp/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "ParkingApp/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "ParkingApp/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "ParkingApp/main.m"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-ParkingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingApp.debug.xcconfig"; path = "Target Support Files/Pods-ParkingApp/Pods-ParkingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		53FB1480ECF4CB2FCFCE6955 /* Pods-ParkingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAppTests.release.xcconfig"; path = "Target Support Files/Pods-ParkingAppTests/Pods-ParkingAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-ParkingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingApp.release.xcconfig"; path = "Target Support Files/Pods-ParkingApp/Pods-ParkingApp.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-ParkingApp-ParkingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingApp-ParkingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "ParkingApp/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-ParkingApp-ParkingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingApp-ParkingAppTests.release.xcconfig"; path = "Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-ParkingApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		C428D8BECE5DAB8E7A85BA45 /* Pods-ParkingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ParkingAppTests/Pods-ParkingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D5AFED2E09CC2E86D1338C0F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-ParkingApp-ParkingAppTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		EB9FD6B5CD51F030841DCA6B /* libPods-ParkingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParkingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CA8A0B05BB12196F701454A /* libPods-DaiVietGo-DaiVietGoTests.a in Frameworks */,
+				3CA8A0B05BB12196F701454A /* libPods-ParkingApp-ParkingAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,20 +65,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7CAC20F43043B74A11F2E1B /* libPods-DaiVietGo.a in Frameworks */,
+				C7CAC20F43043B74A11F2E1B /* libPods-ParkingApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* DaiVietGoTests */ = {
+		00E356EF1AD99517003FC87E /* ParkingAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* DaiVietGoTests.m */,
+				00E356F21AD99517003FC87E /* ParkingAppTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = DaiVietGoTests;
+			path = "ParkingAppTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -89,7 +89,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* DaiVietGo */ = {
+		13B07FAE1A68108700A75B9A /* ParkingApp */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -99,15 +99,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = DaiVietGo;
+			name = "ParkingApp";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				EB9FD6B5CD51F030841DCA6B /* libPods-DaiVietGo.a */,
-				0B1DF0E87833F20706DDDB5A /* libPods-DaiVietGo-DaiVietGoTests.a */,
+				EB9FD6B5CD51F030841DCA6B /* libPods-ParkingApp.a */,
+				0B1DF0E87833F20706DDDB5A /* libPods-ParkingApp-ParkingAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,18 +115,18 @@
 		547A8E9E9663ECB3355FB756 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				6289853FD5D818F15D17248E /* DaiVietGo */,
-				E4DC8A9EFE6F9C5F90DD96E4 /* DaiVietGoTests */,
+				6289853FD5D818F15D17248E /* ParkingApp */,
+				E4DC8A9EFE6F9C5F90DD96E4 /* ParkingAppTests */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
-		6289853FD5D818F15D17248E /* DaiVietGo */ = {
+		6289853FD5D818F15D17248E /* ParkingApp */ = {
 			isa = PBXGroup;
 			children = (
 				951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */,
 			);
-			name = DaiVietGo;
+			name = "ParkingApp";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -139,9 +139,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* DaiVietGo */,
+				13B07FAE1A68108700A75B9A /* ParkingApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* DaiVietGoTests */,
+				00E356EF1AD99517003FC87E /* ParkingAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -155,8 +155,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* DaiVietGo.app */,
-				00E356EE1AD99517003FC87E /* DaiVietGoTests.xctest */,
+				13B07F961A680F5B00A75B9A /* ParkingApp.app */,
+				00E356EE1AD99517003FC87E /* ParkingAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,30 +164,30 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-DaiVietGo.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-DaiVietGo.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-DaiVietGo-DaiVietGoTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-DaiVietGo-DaiVietGoTests.release.xcconfig */,
-				C428D8BECE5DAB8E7A85BA45 /* Pods-DaiVietGoTests.debug.xcconfig */,
-				53FB1480ECF4CB2FCFCE6955 /* Pods-DaiVietGoTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-ParkingApp.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-ParkingApp.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-ParkingApp-ParkingAppTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-ParkingApp-ParkingAppTests.release.xcconfig */,
+				C428D8BECE5DAB8E7A85BA45 /* Pods-ParkingAppTests.debug.xcconfig */,
+				53FB1480ECF4CB2FCFCE6955 /* Pods-ParkingAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E4DC8A9EFE6F9C5F90DD96E4 /* DaiVietGoTests */ = {
+		E4DC8A9EFE6F9C5F90DD96E4 /* ParkingAppTests */ = {
 			isa = PBXGroup;
 			children = (
 				D5AFED2E09CC2E86D1338C0F /* ExpoModulesProvider.swift */,
 			);
-			name = DaiVietGoTests;
+			name = ParkingAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* DaiVietGoTests */ = {
+		00E356ED1AD99517003FC87E /* ParkingAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DaiVietGoTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ParkingAppTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -201,14 +201,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = DaiVietGoTests;
-			productName = DaiVietGoTests;
-			productReference = 00E356EE1AD99517003FC87E /* DaiVietGoTests.xctest */;
+			name = ParkingAppTests;
+			productName = ParkingAppTests;
+			productReference = 00E356EE1AD99517003FC87E /* ParkingAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* DaiVietGo */ = {
+		13B07F861A680F5B00A75B9A /* ParkingApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DaiVietGo" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ParkingApp" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -223,9 +223,9 @@
 			);
 			dependencies = (
 			);
-			name = DaiVietGo;
-			productName = DaiVietGo;
-			productReference = 13B07F961A680F5B00A75B9A /* DaiVietGo.app */;
+			name = "ParkingApp";
+			productName = "ParkingApp";
+			productReference = 13B07F961A680F5B00A75B9A /* ParkingApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -245,7 +245,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DaiVietGo" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ParkingApp" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -258,8 +258,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* DaiVietGo */,
-				00E356ED1AD99517003FC87E /* DaiVietGoTests */,
+				13B07F861A680F5B00A75B9A /* ParkingApp */,
+				00E356ED1AD99517003FC87E /* ParkingAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -304,15 +304,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp/Pods-ParkingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp/Pods-ParkingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParkingApp/Pods-ParkingApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5590BECE00AFFDE2A1D04119 /* [CP] Copy Pods Resources */ = {
@@ -321,15 +321,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp/Pods-ParkingApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp/Pods-ParkingApp-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo/Pods-DaiVietGo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParkingApp/Pods-ParkingApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -347,7 +347,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DaiVietGo-DaiVietGoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ParkingApp-ParkingAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -360,15 +360,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
@@ -386,7 +386,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DaiVietGo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ParkingApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -399,15 +399,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaiVietGo-DaiVietGoTests/Pods-DaiVietGo-DaiVietGoTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParkingApp-ParkingAppTests/Pods-ParkingApp-ParkingAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -436,7 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* DaiVietGoTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ParkingAppTests.m in Sources */,
 				2215ACBC1E62C44583DB69A9 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,7 +456,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* DaiVietGo */;
+			target = 13B07F861A680F5B00A75B9A /* ParkingApp */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -464,14 +464,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-DaiVietGo-DaiVietGoTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-ParkingApp-ParkingAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DaiVietGoTests/Info.plist;
+				INFOPLIST_FILE = "ParkingAppTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,20 +484,20 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.baspro.app.dvgo;
+				PRODUCT_BUNDLE_IDENTIFIER = "vn.baspro.parkingapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DaiVietGo.app/DaiVietGo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkingApp.app/ParkingApp";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-DaiVietGo-DaiVietGoTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-ParkingApp-ParkingAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = DaiVietGoTests/Info.plist;
+				INFOPLIST_FILE = "ParkingAppTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,23 +510,24 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.baspro.app.dvgo;
+				PRODUCT_BUNDLE_IDENTIFIER = "vn.baspro.parkingapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DaiVietGo.app/DaiVietGo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkingApp.app/ParkingApp";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-DaiVietGo.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-ParkingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = DaiVietGo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DaiVietGo;
+				INFOPLIST_FILE = "ParkingApp/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "Parking App";
+				INFOPLIST_KEY_CFBundleDisplayName = ParkingApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,8 +538,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.baspro.app.dvgo;
-				PRODUCT_NAME = DaiVietGo;
+				PRODUCT_BUNDLE_IDENTIFIER = "vn.baspro.parkingapp";
+				PRODUCT_NAME = "ParkingApp";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -547,13 +548,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-DaiVietGo.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-ParkingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = DaiVietGo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DaiVietGo;
+				INFOPLIST_FILE = "ParkingApp/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "Parking App";
+				INFOPLIST_KEY_CFBundleDisplayName = ParkingApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,8 +566,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.baspro.app.dvgo;
-				PRODUCT_NAME = DaiVietGo;
+				PRODUCT_BUNDLE_IDENTIFIER = "vn.baspro.parkingapp";
+				PRODUCT_NAME = "ParkingApp";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -710,7 +712,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DaiVietGoTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ParkingAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -719,7 +721,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DaiVietGo" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ParkingApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -728,7 +730,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DaiVietGo" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ParkingApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

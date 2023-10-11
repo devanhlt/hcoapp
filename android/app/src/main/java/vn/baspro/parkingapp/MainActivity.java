@@ -1,4 +1,4 @@
-package vn.baspro.app.dvgo;
+package vn.baspro.parkingapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "DaiVietGo";
+    return "Parking App";
   }
 
   /**

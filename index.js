@@ -11,5 +11,5 @@ function IgniteApp() {
   return <App hideSplashScreen={RNBootSplash.hide} />
 }
 
-AppRegistry.registerComponent("DaiVietGo", () => IgniteApp)
+AppRegistry.registerComponent("Parking App", () => IgniteApp)
 export default App

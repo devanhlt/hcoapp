@@ -1,4 +1,4 @@
-package vn.baspro.app.dvgo.newarchitecture;
+package vn.baspro.parkingapp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import vn.baspro.app.dvgo.BuildConfig;
-import vn.baspro.app.dvgo.newarchitecture.components.MainComponentsRegistry;
-import vn.baspro.app.dvgo.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import vn.baspro.parkingapp.BuildConfig;
+import vn.baspro.parkingapp.newarchitecture.components.MainComponentsRegistry;
+import vn.baspro.parkingapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

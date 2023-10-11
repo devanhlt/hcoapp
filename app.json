@@ -1,9 +1,9 @@
 {
-  "name": "DaiVietGo",
-  "displayName": "DaiVietGo",
+  "name": "Parking App",
+  "displayName": "Parking App",
   "expo": {
-    "name": "DaiVietGo",
-    "slug": "DaiVietGo",
+    "name": "Parking App",
+    "slug": "Parking App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",
