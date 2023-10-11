@@ -24,12 +24,12 @@ export const NewsScreen: FC<NewsScreenProps> = observer(function NewsScreen() {
       headerComponent={
         <Header
           title="Tin tức"
-          style={{ backgroundColor: colors.palette.dvred }}
+          style={{ backgroundColor: colors.palette.appblue }}
           textStyle={{ color: "white" }}
           iconStyle={{ tintColor: "white" }}
         />
       }
-      statusBarColor={colors.palette.dvred}
+      statusBarColor={colors.palette.appblue}
       statusBarStyle="light-content"
     >
       <WebView source={{ uri: "https://tapdoandaiviet.com.vn/tin-tuc.html" }} style={{ flex: 1 }} />

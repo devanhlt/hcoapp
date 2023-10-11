@@ -11,15 +11,22 @@ import { WarrantyListScreen } from "../screens/warranty/list-screen"
 import { WarrantyDetailScreen } from "../screens/warranty/detail-screen"
 import { ProductDetailScreen } from "../screens/warranty/product-detail-screen"
 import { WarrantyTimesScreen } from "../screens/warranty/times-screen"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { Icon } from "../components"
+import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 export type AppStackParamList = {
   Login: undefined
+  HomeTab: undefined
+  Home: undefined
+  DriveIn: undefined
+  DriveOut: undefined
+
   SelectRole: undefined
   SendOtp: undefined
   VerifyOtp: undefined
   Register: undefined
   ResetPassword: undefined
-  Home: undefined
   ChangePassword: undefined
   ProfileInformation: undefined
   News: undefined
@@ -47,17 +54,61 @@ const AppStack = observer(function AppStack() {
     authenticationStore: { isAuthenticated },
   } = useStores()
 
+  const Tab = createBottomTabNavigator()
+
+  function HomeTabScreen() {
+    return (
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          headerShown: false,
+          tabBarStyle: {
+            height: 64,
+          },
+          tabBarLabelStyle: {
+            marginBottom: 8,
+          },
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName
+            switch (route.name) {
+              case "Home":
+                iconName = focused ? "bell" : "bell"
+                break
+              case "DriveIn":
+                iconName = focused ? "search" : "search"
+                break
+              case "DriveOut":
+                iconName = focused ? "call" : "call"
+                break
+              default:
+                iconName = "pin"
+                break
+            }
+            return <Icon icon={iconName} size={size} color={color} />
+          },
+          tabBarActiveTintColor: colors.palette.appblue,
+          tabBarInactiveTintColor: "gray",
+        })}
+      >
+        <Tab.Screen options={{ title: "Trang chủ" }} name="Home" component={Screens.HomeScreen} />
+        <Tab.Screen
+          options={{ title: "Xe vào" }}
+          name="DriveIn"
+          component={Screens.ProfileInformationScreen}
+        />
+        <Stack.Screen options={{ title: "Xe ra" }} name="DriveOut" component={Screens.NewsScreen} />
+      </Tab.Navigator>
+    )
+  }
+
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false, navigationBarColor: colors.background }}
-      initialRouteName={isAuthenticated ? "Home" : "Login"}
+      initialRouteName={isAuthenticated ? "HomeTab" : "Login"}
     >
       {isAuthenticated ? (
         <>
-          <Stack.Screen name="Home" component={Screens.HomeScreen} />
+          <Stack.Screen name="HomeTab" component={HomeTabScreen} />
           <Stack.Screen name="ChangePassword" component={Screens.ChangePasswordScreen} />
-          <Stack.Screen name="ProfileInformation" component={Screens.ProfileInformationScreen} />
-          <Stack.Screen name="News" component={Screens.NewsScreen} />
           <Stack.Screen name="SupportInformation" component={Screens.SupportInformationScreen} />
           <Stack.Screen name="WarrantyHistoryInfo" component={Screens.WarrantyHistoryInfoScreen} />
           <Stack.Screen name="ActiveWarranty" component={Screens.ActiveWarrantyScreen} />

@@ -53,12 +53,12 @@ export const WarrantyHistoryInfoScreen: FC<WarrantyHistoryInfoScreenProps> = obs
         headerComponent={
           <Header
             title="Lịch sử bảo hành"
-            style={{ backgroundColor: colors.palette.dvred }}
+            style={{ backgroundColor: colors.palette.appblue }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
-        statusBarColor={colors.palette.dvred}
+        statusBarColor={colors.palette.appblue}
         statusBarStyle="light-content"
         safeAreaEdges={["bottom"]}
       >

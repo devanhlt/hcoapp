@@ -345,12 +345,12 @@ export const WarrantyListScreen = observer(function WarrantyListScreen() {
       headerComponent={
         <Header
           title={`DANH SÁCH CA BẢO HÀNH (${totalCount})`}
-          style={{ backgroundColor: colors.palette.dvred }}
+          style={{ backgroundColor: colors.palette.appblue }}
           textStyle={{ color: "white", fontSize: 14, textAlign: "center" }}
           iconStyle={{ tintColor: "white" }}
         />
       }
-      statusBarColor={colors.palette.dvred}
+      statusBarColor={colors.palette.appblue}
       statusBarStyle="light-content"
     >
       <TimeFilter value={option && option.name} handle={showRangeDate} />

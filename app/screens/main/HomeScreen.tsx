@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite"
 import React, { FC, useEffect } from "react"
-import { Dimensions, Image, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
+import { Image, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import { Screen, Text } from "../../components"
 import { colors, spacing } from "../../theme"
 import { AppStackScreenProps, navNext } from "../../navigators"
@@ -8,11 +8,9 @@ import { useStores } from "../../models"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useNavigation } from "@react-navigation/native"
 import { FlatList } from "react-native-gesture-handler"
-import { SwiperFlatList } from "react-native-swiper-flatlist"
 import ProcessingView from "../../components/ProcessingView"
 
 interface HomeScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Home">> {}
-const { width, height } = Dimensions.get("window")
 
 export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
   const {
@@ -39,21 +37,15 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
       <FlatList
         showsVerticalScrollIndicator={false}
         ListHeaderComponentStyle={{ flex: 1 }}
-        contentContainerStyle={{ paddingVertical: spacing.sm }}
+        contentContainerStyle={{ paddingVertical: spacing.xxxs }}
         ListHeaderComponent={() => (
           <View>
             <View style={$topContainer}>
               <View>
                 <Text
                   testID="welcome-heading"
-                  style={[$welcomeHeading, { fontSize: 18 }]}
-                  text="Chào mừng tới"
-                />
-                <Text
-                  testID="welcome-heading"
-                  style={[$welcomeHeading, { color: colors.palette.dvred }]}
-                  text="DaiVietGo"
-                  preset="bold"
+                  style={[$welcomeHeading, { fontSize: 16, fontWeight: "bold" }]}
+                  text="KH001 - KHÁCH HÀNG 001"
                 />
               </View>
               <TouchableOpacity
@@ -63,7 +55,7 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
                   height: 56,
                   borderRadius: 28,
                   borderWidth: 3,
-                  borderColor: colors.palette.dvred,
+                  borderColor: colors.palette.appblue,
                 }}
                 onPress={openProfile}
               >
@@ -75,31 +67,6 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
                 />
               </TouchableOpacity>
             </View>
-            <SwiperFlatList
-              autoplayLoop
-              autoplayDelay={5}
-              style={{
-                marginBottom: spacing.lg,
-                borderRadius: 16,
-                overflow: "hidden",
-              }}
-              data={[
-                { picture: "https://tapdoandaiviet.com.vn/multidata/trai-nghiem-7-ngay-pc.jpg" },
-                {
-                  picture: "https://tapdoandaiviet.com.vn/multidata/banner-dai-viet-pc-072023.jpg",
-                },
-                { picture: "https://tapdoandaiviet.com.vn/multidata/trai-nghiem-7-ngay-pc.jpg" },
-              ]}
-              renderItem={({ item }) => {
-                return (
-                  <Image
-                    style={{ width: width - 24, borderRadius: 16, height: 148 }}
-                    resizeMode="stretch"
-                    source={{ uri: item.picture }}
-                  />
-                )
-              }}
-            />
           </View>
         )}
         style={{ marginTop: spacing.xs, paddingHorizontal: spacing.sm }}
@@ -143,7 +110,7 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
             color: "#0000000A",
           },
         ]}
-        renderItem={({ item, index }) => {
+        renderItem={({ item }) => {
           function handleMenuPressed() {
             switch (item.code) {
               case "LUCKYDRAW":
@@ -208,69 +175,6 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
         }}
         ItemSeparatorComponent={() => <View style={{ width: 16, height: 16 }} />}
         numColumns={3}
-        ListFooterComponent={() => (
-          <View style={{ marginTop: spacing.md }}>
-            <Text preset="bold">Thông tin nổi bật</Text>
-            <View
-              style={{
-                flexDirection: "row",
-                marginTop: spacing.xxs,
-                justifyContent: "space-between",
-              }}
-            >
-              <View
-                style={{
-                  backgroundColor: "#00000011",
-                  paddingHorizontal: spacing.xs,
-                  paddingVertical: spacing.xs,
-                  borderRadius: 12,
-                  flex: 0.48,
-                }}
-              >
-                <Image
-                  style={{
-                    borderRadius: 4,
-                    width: "100%",
-                    height: 128,
-                  }}
-                  resizeMode="stretch"
-                  source={{
-                    uri: "https://tapdoandaiviet.com.vn/multidata/may-loc-nuoc-ion-kiem-h-hero-MN302.jpg",
-                  }}
-                />
-                <Text
-                  preset="formLabel"
-                  style={{ marginTop: spacing.xxs, lineHeight: 20, margin: spacing.xxs }}
-                >
-                  Nước từ trường là gì? Thực hư về công dụng nước từ trường
-                </Text>
-              </View>
-              <View
-                style={{
-                  backgroundColor: "#00000011",
-                  paddingHorizontal: spacing.md,
-                  paddingVertical: spacing.xs,
-                  borderRadius: 12,
-                  flex: 0.48,
-                }}
-              >
-                <Image
-                  style={{ width: "100%", height: 128 }}
-                  resizeMode="stretch"
-                  source={{
-                    uri: "https://tapdoandaiviet.com.vn/multidata/ghe-massage-makano-mc102.png",
-                  }}
-                />
-                <Text
-                  preset="formLabel"
-                  style={{ marginTop: spacing.xxs, lineHeight: 20, margin: spacing.xxs }}
-                >
-                  Nước từ trường là gì? Thực hư về công dụng nước từ trường
-                </Text>
-              </View>
-            </View>
-          </View>
-        )}
       />
       {loading.getSetting && <ProcessingView isLoading={loading.getSetting} />}
     </Screen>
@@ -285,29 +189,7 @@ const $topContainer: ViewStyle = {
   justifyContent: "space-between",
 }
 
-const $bottomContainer: ViewStyle = {
-  backgroundColor: colors.errorBackground,
-  borderTopLeftRadius: 16,
-  borderTopRightRadius: 16,
-  paddingHorizontal: spacing.lg,
-  paddingVertical: spacing.lg,
-  flex: 1,
-}
-
 const $welcomeHeading: TextStyle = {
   fontSize: 24,
   marginBottom: spacing.xxs,
-}
-
-const $tapButton: ViewStyle = {
-  marginTop: spacing.lg,
-  backgroundColor: colors.palette.neutral900,
-  borderRadius: 8,
-}
-
-const $child: ViewStyle = { width: width, alignItems: "center" }
-
-const $text: TextStyle = {
-  fontSize: 14,
-  textAlign: "center",
 }

@@ -99,12 +99,12 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
         headerComponent={
           <Header
             title="Đổi mật khẩu"
-            style={{ backgroundColor: colors.palette.dvred }}
+            style={{ backgroundColor: colors.palette.appblue }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
-        statusBarColor={colors.palette.dvred}
+        statusBarColor={colors.palette.appblue}
         statusBarStyle="light-content"
       >
         <Formik

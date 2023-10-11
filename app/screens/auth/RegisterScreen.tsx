@@ -2,13 +2,13 @@ import React, { FC, useMemo, useRef, useState } from "react"
 import { observer } from "mobx-react-lite"
 import { ScrollView, TextInput, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AppStackScreenProps } from "../navigators"
-import { Button, Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../components"
-import { colors, spacing } from "../theme"
+import { AppStackScreenProps } from "../../navigators"
+import { Button, Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
+import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
-import { useStores } from "../models"
-import ProcessingView from "../components/ProcessingView"
+import { useStores } from "../../models"
+import ProcessingView from "../../components/ProcessingView"
 
 const ChangePasswordSchema = Yup.object().shape({
   username: Yup.string().required("Chưa nhập họ và tên."),
@@ -58,12 +58,12 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function ChangeP
       headerComponent={
         <Header
           title="Đăng ký tài khoản"
-          style={{ backgroundColor: colors.palette.dvred }}
+          style={{ backgroundColor: colors.palette.appblue }}
           textStyle={{ color: "white" }}
           iconStyle={{ tintColor: "white" }}
         />
       }
-      statusBarColor={colors.palette.dvred}
+      statusBarColor={colors.palette.appblue}
       statusBarStyle="light-content"
     >
       <Formik

@@ -37,12 +37,12 @@ export const SupportInformationScreen: FC<SupportInformationScreenProps> = obser
         headerComponent={
           <Header
             title="Thông tin hỗ trợ"
-            style={{ backgroundColor: colors.palette.dvred }}
+            style={{ backgroundColor: colors.palette.appblue }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
-        statusBarColor={colors.palette.dvred}
+        statusBarColor={colors.palette.appblue}
         statusBarStyle="light-content"
       >
         <View

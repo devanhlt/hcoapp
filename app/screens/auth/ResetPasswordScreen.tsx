@@ -12,7 +12,7 @@ import {
   ViewStyle,
 } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AppStackScreenProps } from "../navigators"
+import { AppStackScreenProps } from "../../navigators"
 import {
   Button,
   Header,
@@ -21,12 +21,12 @@ import {
   Text,
   TextField,
   TextFieldAccessoryProps,
-} from "../components"
-import { colors, spacing } from "../theme"
+} from "../../components"
+import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
-import { useStores } from "../models"
-import ProcessingView from "../components/ProcessingView"
+import { useStores } from "../../models"
+import ProcessingView from "../../components/ProcessingView"
 import { useNavigation } from "@react-navigation/native"
 
 const ResetPasswordSchema = Yup.object().shape({
@@ -118,12 +118,12 @@ export const ResetPasswordScreen: FC<ResetPasswordScreenProps> = observer(
         headerComponent={
           <Header
             title="Đặt lại mật khẩu"
-            style={{ backgroundColor: colors.palette.dvred }}
+            style={{ backgroundColor: colors.palette.appblue }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
-        statusBarColor={colors.palette.dvred}
+        statusBarColor={colors.palette.appblue}
         statusBarStyle="light-content"
       >
         <Formik

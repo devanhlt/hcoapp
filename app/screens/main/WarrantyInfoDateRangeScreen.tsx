@@ -88,13 +88,13 @@ export const WarrantyInfoDateRangeScreen: FC<WarrantyInfoDateRangeScreenProps> =
         headerComponent={
           <Header
             title="Chọn khoảng thời gian"
-            style={{ backgroundColor: colors.palette.dvred }}
+            style={{ backgroundColor: colors.palette.appblue }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
         safeAreaEdges={["bottom"]}
-        statusBarColor={colors.palette.dvred}
+        statusBarColor={colors.palette.appblue}
         statusBarStyle="light-content"
       >
         <Formik

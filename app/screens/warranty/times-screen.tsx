@@ -105,12 +105,12 @@ export const WarrantyTimesScreen = observer(function WarrantyTimesScreen(props: 
       headerComponent={
         <Header
           title="SỐ LẦN BẢO HÀNH"
-          style={{ backgroundColor: colors.palette.dvred }}
+          style={{ backgroundColor: colors.palette.appblue }}
           textStyle={{ color: "white" }}
           iconStyle={{ tintColor: "white" }}
         />
       }
-      statusBarColor={colors.palette.dvred}
+      statusBarColor={colors.palette.appblue}
       statusBarStyle="light-content"
     >
       <SafeAreaView style={ROOT}>

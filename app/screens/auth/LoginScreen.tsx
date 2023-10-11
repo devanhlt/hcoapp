@@ -10,14 +10,14 @@ import {
   ViewStyle,
 } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AppStackScreenProps } from "../navigators"
-import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../components"
+import { AppStackScreenProps } from "../../navigators"
+import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../../components"
 import { useStores } from "../../models"
 import { useNavigation } from "@react-navigation/native"
 import { EnvironmentsPopup } from "../../components/EnvironmentsPopup"
 import { colors, spacing } from "../../theme"
 import * as Application from "expo-application"
-import ProcessingView from "../components/ProcessingView"
+import ProcessingView from "../../components/ProcessingView"
 
 interface LoginScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Login">> {}
 

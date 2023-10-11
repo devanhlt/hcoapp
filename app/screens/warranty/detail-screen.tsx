@@ -213,12 +213,12 @@ export const WarrantyDetailScreen = observer(function WarrantyDetailScreen(props
       headerComponent={
         <Header
           title="LỊCH SỬ BẢO HÀNH"
-          style={{ backgroundColor: colors.palette.dvred }}
+          style={{ backgroundColor: colors.palette.appblue }}
           textStyle={{ color: "white", fontSize: 14, textAlign: "center" }}
           iconStyle={{ tintColor: "white" }}
         />
       }
-      statusBarColor={colors.palette.dvred}
+      statusBarColor={colors.palette.appblue}
       statusBarStyle="light-content"
     >
       <SafeAreaView style={ROOT}>

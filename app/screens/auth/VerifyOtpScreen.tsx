@@ -2,11 +2,11 @@ import React, { FC, useState } from "react"
 import { observer } from "mobx-react-lite"
 import { ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AppStackScreenProps } from "../navigators"
-import { Screen, Text, TextField } from "../components"
-import { colors, spacing } from "../theme"
+import { AppStackScreenProps } from "../../navigators"
+import { Screen, Text, TextField } from "../../components"
+import { colors, spacing } from "../../theme"
 import { useNavigation } from "@react-navigation/native"
-import { useStores } from "../models"
+import { useStores } from "../../models"
 
 interface VerifyOtpScreenProps extends NativeStackScreenProps<AppStackScreenProps<"VerifyOtp">> {}
 
