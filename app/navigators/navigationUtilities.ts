@@ -91,6 +91,12 @@ export function navigate(...args: Parameters<typeof navigationRef.navigate>) {
   }
 }
 
+export function navNext(name: any, params?: any) {
+  if (navigationRef.isReady()) {
+    navigationRef.navigate(name as never, params as never)
+  }
+}
+
 /**
  * This function is used to go back in a navigation stack, if it's possible to go back.
  * If the navigation stack can't go back, nothing happens.

@@ -230,7 +230,8 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
 })
 
 const $labelStyle: TextStyle = {
-  marginBottom: spacing.xs,
+  marginBottom: spacing.xxs,
+  marginLeft: spacing.xxs,
 }
 
 const $inputWrapperStyle: ViewStyle = {
@@ -258,7 +259,7 @@ const $inputStyle: TextStyle = {
 }
 
 const $helperStyle: TextStyle = {
-  marginTop: spacing.xs,
+  marginLeft: spacing.xxs,
 }
 
 const $rightAccessoryStyle: ViewStyle = {

@@ -1,10 +1,9 @@
 {
-  "name": "Parking App",
-  "displayName": "Parking App",
+  "name": "DaiVietGo",
+  "displayName": "DaiVietGo",
   "expo": {
-    "name": "Parking App",
-    "slug": "Parking App",
-    "scheme": "parkingapp",
+    "name": "DaiVietGo",
+    "slug": "DaiVietGo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",
@@ -16,44 +15,37 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "jsEngine": "hermes",
     "assetBundlePatterns": [
       "**/*"
     ],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
-      "package": "vn.baspro.parkingapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
         "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
       },
       "splash": {
+        "backgroundColor": "#EBF7FF",
         "image": "./assets/images/splash-logo-android-universal.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#EBF7FF"
+        "resizeMode": "contain"
       }
     },
     "ios": {
       "icon": "./assets/images/app-icon-ios.png",
       "supportsTablet": true,
-      "bundleIdentifier": "vn.baspro.parkingapp",
       "splash": {
+        "backgroundColor": "#EBF7FF",
         "image": "./assets/images/splash-logo-ios-mobile.png",
-        "tabletImage": "./assets/images/splash-logo-ios-tablet.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#EBF7FF"
+        "resizeMode": "contain"
       }
     },
     "web": {
       "favicon": "./assets/images/app-icon-web-favicon.png",
       "splash": {
+        "backgroundColor": "#EBF7FF",
         "image": "./assets/images/splash-logo-web.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#EBF7FF"
+        "resizeMode": "contain"
       }
-    },
-    "plugins": [
-      "expo-localization"
-    ]
+    }
   }
 }

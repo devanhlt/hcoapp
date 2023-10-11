@@ -1,29 +1,40 @@
 import * as React from "react"
-import { StyleProp, View, ViewStyle } from "react-native"
+import { ImageStyle, StyleProp, TextStyle, View, ViewStyle } from "react-native"
 import { observer } from "mobx-react-lite"
-import { Text } from "app/components/Text"
+import { Text } from "../components/Text"
 import { Icon } from "./Icon"
+import { useNavigation } from "@react-navigation/native"
 
 export interface HeaderProps {
   /**
    * An optional style override useful for padding & margin.
    */
   style?: StyleProp<ViewStyle>
+  textStyle?: StyleProp<TextStyle>
+  iconStyle?: StyleProp<ImageStyle>
 
-  title?: string,
+  title?: string
 }
 
 /**
  * Describe your component here
  */
 export const Header = observer(function Header(props: HeaderProps) {
-  const { title, style } = props
+  const { title, style, textStyle, iconStyle } = props
   const $styles = [$container, style]
+  const navigation = useNavigation()
+  const handleBack = () => {
+    if (navigation.canGoBack()) {
+      navigation.goBack()
+    }
+  }
 
   return (
     <View style={$styles}>
-      <Icon icon={"back"} size={32} style={{ margin: 8 }} />
-      <Text size={"lg"} weight={"normal"} style={{ flex: 1, margin: 8 }}>{title}</Text>
+      <Icon icon={"back"} size={24} style={[{ margin: 8 }, iconStyle]} onPress={handleBack} />
+      <Text size={"lg"} weight={"normal"} style={[{ flex: 1, margin: 8 }, textStyle]}>
+        {title}
+      </Text>
     </View>
   )
 })

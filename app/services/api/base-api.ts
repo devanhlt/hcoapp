@@ -76,7 +76,7 @@ export class BaseApi {
           if (!this.rootStore) return error
           const authStore = this.rootStore.authenticationStore
           if (error.response && error.response.status === 401) {
-            await authStore.logout()
+            authStore.logout()
             return error
           }
           return Promise.reject(error)

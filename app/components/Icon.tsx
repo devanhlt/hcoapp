@@ -107,6 +107,14 @@ export const iconRegistry = {
   slack: require("../../assets/icons/slack.png"),
   view: require("../../assets/icons/view.png"),
   x: require("../../assets/icons/x.png"),
+  eye: require("../../assets/icons/eye.png"),
+  eye_slash: require("../../assets/icons/eye_slash.png"),
+  app_icon: require("../../assets/icons/app_icon.png"),
+  call: require("../../assets/icons/ic_phone_call_support.png"),
+  ic_scan_qr_code: require("../../assets/icons/ic_scan_qr_code.png"),
+  flash: require("../../assets/icons/flash.png"),
+  flash_off: require("../../assets/icons/flash_off.png"),
+  search: require("../../assets/icons/search.png"),
 }
 
 const $imageStyle: ImageStyle = {

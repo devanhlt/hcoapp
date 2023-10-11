@@ -33,8 +33,28 @@ const palette = {
   angry100: "#F2D6CD",
   angry500: "#C03403",
 
+  dvred: "#EB0B00",
+
   overlay20: "rgba(25, 16, 21, 0.2)",
   overlay50: "rgba(25, 16, 21, 0.5)",
+
+  //customize colors
+  white: "#FFFFFF",
+  border: "#D9D9D9",
+  placeholder: "#ACACAC",
+  blue: "#188FFC",
+  black: "#151948",
+  subtext: "#797DAC",
+  dividerGrey: "#E5E5E5",
+  lightGrey: "#939AA4",
+  dividerGreyF5: "#F5F5F5",
+  red: "#EA2127",
+  green188: "#188FFC",
+  action: "#1890FF",
+  greyBA: "#BABABA",
+  deviderGrey2: "#F3F3F5",
+
+  link: "#2f94c6",
 } as const
 
 export const colors = {

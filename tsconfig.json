@@ -9,15 +9,13 @@
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "sourceMap": true,
     "target": "esnext",
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "baseUrl": "./"
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules"],
-  "include": ["index.js", "App.js", "app", "test", "*.js"],
-  "extends": "expo/tsconfig.base"
+  "include": ["index.js", "app", "test", "storybook"]
 }
