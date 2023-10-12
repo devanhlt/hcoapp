@@ -13,7 +13,6 @@ import { ProductDetailScreen } from "../screens/warranty/product-detail-screen"
 import { WarrantyTimesScreen } from "../screens/warranty/times-screen"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Icon } from "../components"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 export type AppStackParamList = {
   Login: undefined
@@ -39,6 +38,7 @@ export type AppStackParamList = {
   WarrantyDetail: undefined
   WarrantyProductDetail: undefined
   WarrantyTime: undefined
+  Report: undefined
   // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
 }
 
@@ -62,22 +62,24 @@ const AppStack = observer(function AppStack() {
         screenOptions={({ route }) => ({
           headerShown: false,
           tabBarStyle: {
-            height: 64,
+            paddingTop: 12,
+            backgroundColor: "white",
           },
           tabBarLabelStyle: {
-            marginBottom: 8,
+            paddingTop: 8,
+            paddingBottom: 8,
           },
           tabBarIcon: ({ focused, color, size }) => {
             let iconName
             switch (route.name) {
               case "Home":
-                iconName = focused ? "bell" : "bell"
+                iconName = focused ? "home" : "home"
                 break
               case "DriveIn":
-                iconName = focused ? "search" : "search"
+                iconName = focused ? "drive_in" : "drive_in"
                 break
               case "DriveOut":
-                iconName = focused ? "call" : "call"
+                iconName = focused ? "drive_out" : "drive_out"
                 break
               default:
                 iconName = "pin"
@@ -93,9 +95,13 @@ const AppStack = observer(function AppStack() {
         <Tab.Screen
           options={{ title: "Xe vào" }}
           name="DriveIn"
-          component={Screens.ProfileInformationScreen}
+          component={Screens.DriveInScreen}
         />
-        <Stack.Screen options={{ title: "Xe ra" }} name="DriveOut" component={Screens.NewsScreen} />
+        <Stack.Screen
+          options={{ title: "Xe ra" }}
+          name="DriveOut"
+          component={Screens.DriveOutScreen}
+        />
       </Tab.Navigator>
     )
   }
@@ -109,6 +115,8 @@ const AppStack = observer(function AppStack() {
         <>
           <Stack.Screen name="HomeTab" component={HomeTabScreen} />
           <Stack.Screen name="ChangePassword" component={Screens.ChangePasswordScreen} />
+          <Stack.Screen name="Report" component={Screens.ReportScreen} />
+          <Stack.Screen name="ProfileInformation" component={Screens.ProfileInformationScreen} />
           <Stack.Screen name="SupportInformation" component={Screens.SupportInformationScreen} />
           <Stack.Screen name="WarrantyHistoryInfo" component={Screens.WarrantyHistoryInfoScreen} />
           <Stack.Screen name="ActiveWarranty" component={Screens.ActiveWarrantyScreen} />

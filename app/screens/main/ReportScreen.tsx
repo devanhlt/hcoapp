@@ -9,9 +9,9 @@ import { colors } from "../../theme"
 // import { useStores } from "../models"
 import { WebView } from "react-native-webview"
 
-interface NewsScreenProps extends NativeStackScreenProps<AppStackScreenProps<"News">> {}
+interface ReportScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Report">> {}
 
-export const NewsScreen: FC<NewsScreenProps> = observer(function NewsScreen() {
+export const ReportScreen: FC<ReportScreenProps> = observer(function NewsScreen() {
   // Pull in one of our MST stores
   // const { someStore, anotherStore } = useStores()
 
@@ -23,7 +23,7 @@ export const NewsScreen: FC<NewsScreenProps> = observer(function NewsScreen() {
       preset="fixed"
       headerComponent={
         <Header
-          title="Tin tức"
+          title="Báo cáo"
           style={{ backgroundColor: colors.palette.appblue }}
           textStyle={{ color: "white" }}
           iconStyle={{ tintColor: "white" }}

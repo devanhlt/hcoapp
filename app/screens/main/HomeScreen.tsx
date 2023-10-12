@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite"
 import React, { FC, useEffect } from "react"
 import { Image, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
-import { Screen, Text } from "../../components"
+import { Icon, Screen, Text } from "../../components"
 import { colors, spacing } from "../../theme"
 import { AppStackScreenProps, navNext } from "../../navigators"
 import { useStores } from "../../models"
@@ -29,25 +29,16 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
 
   return (
     <Screen
-      style={{ backgroundColor: colors.palette.neutral100 }}
+      style={{ backgroundColor: colors.palette.white }}
       statusBarStyle={"dark-content"}
       statusBarColor={"white"}
-      safeAreaEdges={["bottom"]}
     >
       <FlatList
         showsVerticalScrollIndicator={false}
         ListHeaderComponentStyle={{ flex: 1 }}
-        contentContainerStyle={{ paddingVertical: spacing.xxxs }}
         ListHeaderComponent={() => (
           <View>
             <View style={$topContainer}>
-              <View>
-                <Text
-                  testID="welcome-heading"
-                  style={[$welcomeHeading, { fontSize: 16, fontWeight: "bold" }]}
-                  text="KH001 - KHÁCH HÀNG 001"
-                />
-              </View>
               <TouchableOpacity
                 style={{
                   backgroundColor: "white",
@@ -66,70 +57,54 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
                   style={{ flex: 1, alignSelf: "stretch", borderRadius: 64, margin: 2 }}
                 />
               </TouchableOpacity>
+              <View style={{ flex: 1, marginLeft: 12 }}>
+                <Text style={$heading} text="KH001" />
+                <Text style={$heading} text="KHÁCH HÀNG 001" />
+              </View>
             </View>
+            <View
+              style={{
+                height: 1,
+                width: "100%",
+                backgroundColor: colors.palette.dividerGrey,
+                marginTop: 8,
+                marginBottom: 24,
+              }}
+            />
           </View>
         )}
         style={{ marginTop: spacing.xs, paddingHorizontal: spacing.sm }}
         data={[
           {
-            name: "Quay số\nmay mắn",
-            code: "LUCKYDRAW",
-            picture: "https://vouchermatic.app/wp-content/uploads/2019/11/Events.png",
-            color: "#EEDD2244",
+            name: "Xe vào",
+            code: "DRIVE_IN",
+            icon: "drive_in",
+            color: colors.palette.appblue,
           },
           {
-            name: "Kích hoạt\nbảo hành",
-            code: "WARRANTY",
-            picture:
-              "https://static.vecteezy.com/system/resources/previews/011/654/819/original/transparent-warranty-icon-free-png.png",
-            color: "#0000000A",
+            name: "Xe ra",
+            code: "DRIVE_OUT",
+            icon: "drive_out",
+            color: colors.palette.red,
           },
           {
-            name: "Lịch sử\nkích hoạt",
-            code: "WARRANTY_INFO",
-            picture: "https://cdn-icons-png.flaticon.com/512/1809/1809147.png",
-            color: "#0000000A",
-          },
-          {
-            name: "Thông tin\nhỗ trợ",
-            code: "SUPPORT_INFORMATION",
-            picture: "https://cdn-icons-png.flaticon.com/512/4230/4230745.png",
-            color: "#1166AA22",
-          },
-          {
-            name: "Tin tức",
-            code: "NEWS",
-            picture:
-              "https://icons-for-free.com/iconfiles/png/512/morning+news+newspaper+icon-1320136429130706490.png",
-            color: "#1155BB22",
-          },
-          {
-            name: "Lịch sử\nbảo hành",
-            code: "WARRANTY_HISTORY",
-            picture: "https://cdn-icons-png.flaticon.com/512/1809/1809147.png",
-            color: "#0000000A",
+            name: "Báo cáo",
+            code: "REPORT",
+            icon: "report",
+            color: colors.palette.black,
           },
         ]}
         renderItem={({ item }) => {
           function handleMenuPressed() {
             switch (item.code) {
-              case "LUCKYDRAW":
-                navNext("LuckyDraw")
+              case "DRIVE_IN":
+                navNext("DriveIn")
                 break
-              case "WARRANTY":
-                navNext("ActiveWarranty")
+              case "DRIVE_OUT":
+                navNext("DriveOut")
                 break
-              case "WARRANTY_INFO":
-                navNext("WarrantyInfoDateRange")
-                break
-              case "SUPPORT_INFORMATION":
-                navNext("SupportInformation")
-                break
-              case "NEWS":
-                navNext("News")
-                break
-              case "WARRANTY_HISTORY":
-                navNext("WarrantyList")
+              case "REPORT":
+                navNext("Report")
                 break
             }
           }
@@ -137,31 +112,33 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
           return (
             <TouchableOpacity
               style={{
-                maxWidth: "33%",
-                width: "33%",
+                maxWidth: "40%",
+                width: "40%",
                 alignItems: "center",
+                marginHorizontal: "5%",
+                marginVertical: 12,
+                padding: 16,
+                backgroundColor: item.color,
+                borderRadius: 12,
+                elevation: 4,
               }}
               onPress={handleMenuPressed}
             >
-              <View
+              <Icon
+                icon={item.icon}
+                size={64}
                 style={{
-                  backgroundColor: item.color,
-                  width: "70%",
-                  aspectRatio: 1,
-                  borderRadius: 64,
                   justifyContent: "center",
                   alignItems: "center",
-                  padding: spacing.md,
+                  tintColor: "white",
                 }}
-              >
-                <Image source={{ uri: item.picture }} style={{ flex: 1, alignSelf: "stretch" }} />
-              </View>
+              />
               <Text
                 style={{
-                  color: "black",
+                  color: colors.palette.white,
                   paddingHorizontal: spacing.xs,
                   paddingVertical: spacing.xxs,
-                  fontSize: 14,
+                  fontSize: 20,
                   textAlign: "center",
                   lineHeight: 16,
                   marginTop: 4,
@@ -174,7 +151,7 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
           )
         }}
         ItemSeparatorComponent={() => <View style={{ width: 16, height: 16 }} />}
-        numColumns={3}
+        numColumns={2}
       />
       {loading.getSetting && <ProcessingView isLoading={loading.getSetting} />}
     </Screen>
@@ -189,7 +166,4 @@ const $topContainer: ViewStyle = {
   justifyContent: "space-between",
 }
 
-const $welcomeHeading: TextStyle = {
-  fontSize: 24,
-  marginBottom: spacing.xxs,
-}
+const $heading: TextStyle = { fontSize: 16, fontWeight: "bold" }

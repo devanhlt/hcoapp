@@ -111,7 +111,7 @@ function useAutoPreset(props: AutoScreenProps) {
     if (scrollViewHeight.current === null || scrollViewContentHeight.current === null) return
 
     // check whether content fits the screen then toggle scroll state according to it
-    const contentFitsScreen = (function() {
+    const contentFitsScreen = (function () {
       if (point) {
         return scrollViewContentHeight.current < scrollViewHeight.current - point
       } else {
@@ -216,8 +216,13 @@ export function Screen(props: ScreenProps) {
 
   return (
     <View style={[$containerStyle, { backgroundColor }, $containerInsets]}>
-      {(showStatusBar) &&
-        <SVCStatusBar statusBarStyle={statusBarStyle} backgroundColor={statusBarColor} {...StatusBarProps} />}
+      {showStatusBar && (
+        <SVCStatusBar
+          statusBarStyle={statusBarStyle}
+          backgroundColor={statusBarColor}
+          {...StatusBarProps}
+        />
+      )}
       {headerComponent}
 
       <KeyboardAvoidingView

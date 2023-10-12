@@ -115,6 +115,11 @@ export const iconRegistry = {
   flash: require("../../assets/icons/flash.png"),
   flash_off: require("../../assets/icons/flash_off.png"),
   search: require("../../assets/icons/search.png"),
+  drive_in: require("../../assets/icons/drive_in.png"),
+  drive_out: require("../../assets/icons/drive_out.png"),
+  report: require("../../assets/icons/report.png"),
+  home: require("../../assets/icons/home.png"),
+  caret_down: require("../../assets/icons/caret_down.png"),
 }
 
 const $imageStyle: ImageStyle = {
