@@ -1,4 +1,4 @@
-package vn.baspro.parkingapp.newarchitecture.components;
+package com.dalatcowork.hco.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

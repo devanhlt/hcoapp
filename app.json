@@ -1,9 +1,9 @@
 {
-  "name": "Parking App",
-  "displayName": "Parking App",
+  "name": "Hop Cho Online",
+  "displayName": "Hop Cho Online",
   "expo": {
-    "name": "Parking App",
-    "slug": "Parking App",
+    "name": "Hop Cho Online",
+    "slug": "Hop Cho Online",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",

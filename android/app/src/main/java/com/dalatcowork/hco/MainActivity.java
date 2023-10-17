@@ -1,4 +1,4 @@
-package vn.baspro.parkingapp;
+package com.dalatcowork.hco;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "Parking App";
+    return "Hop Cho Online";
   }
 
   /**
