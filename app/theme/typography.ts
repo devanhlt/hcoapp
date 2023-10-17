@@ -3,44 +3,41 @@
 
 import { Platform } from "react-native"
 import {
-  MontserratAlternates_300Light as montserratAlternatesLight,
-  MontserratAlternates_300Light_Italic as montserratAlternatesLightItalic,
-  MontserratAlternates_400Regular as montserratAlternatesRegular,
-  MontserratAlternates_400Regular_Italic as montserratAlternatesRegularItalic,
-  MontserratAlternates_500Medium as montserratAlternatesMedium,
-  MontserratAlternates_500Medium_Italic as montserratAlternatesMediumItalic,
-  MontserratAlternates_600SemiBold as montserratAlternatesSemiBold,
-  MontserratAlternates_600SemiBold_Italic as montserratAlternatesSemiBoldItalic,
-  MontserratAlternates_700Bold as montserratAlternatesBold,
-  MontserratAlternates_700Bold_Italic as montserratAlternatesBoldItalic
-} from "@expo-google-fonts/montserrat-alternates"
+  Lexend_100Thin as LexendThin,
+  Lexend_200ExtraLight as LexendExtraLight,
+  Lexend_300Light as LexendLight,
+  Lexend_400Regular as LexendRegular,
+  Lexend_500Medium as LexendMedium,
+  Lexend_600SemiBold as LexendSemiBold,
+  Lexend_700Bold as LexendBold,
+  Lexend_800ExtraBold as LexendExtraBold,
+  Lexend_900Black as LexendBlack,
+} from "@expo-google-fonts/lexend"
 
 export const customFontsToLoad = {
-  montserratAlternatesLight,
-  montserratAlternatesLightItalic,
-  montserratAlternatesRegular,
-  montserratAlternatesRegularItalic,
-  montserratAlternatesMedium,
-  montserratAlternatesMediumItalic,
-  montserratAlternatesSemiBold,
-  montserratAlternatesSemiBoldItalic,
-  montserratAlternatesBold,
-  montserratAlternatesBoldItalic,
+  LexendThin,
+  LexendExtraLight,
+  LexendLight,
+  LexendRegular,
+  LexendMedium,
+  LexendSemiBold,
+  LexendBold,
+  LexendExtraBold,
+  LexendBlack,
 }
 
 const fonts = {
-  montserratAlternates: {
+  lexend: {
     // Cross-platform Google font.
-    light: "montserratAlternatesLight",
-    ilight: "montserratAlternatesLightItalic",
-    normal: "montserratAlternatesRegular",
-    inormal: "montserratAlternatesRegularItalic",
-    medium: "montserratAlternatesMedium",
-    imedium: "montserratAlternatesMediumItalic",
-    semiBold: "montserratAlternatesSemiBold",
-    isemiBold: "montserratAlternatesSemiBoldItalic",
-    bold: "montserratAlternatesBold",
-    ibold: "montserratAlternatesBoldItalic",
+    thin: "LexendThin",
+    extralight: "LexendExtraLight",
+    light: "LexendLight",
+    regular: "LexendRegular",
+    medium: "LexendMedium",
+    semibold: "LexendSemiBold",
+    bold: "LexendBold",
+    extrabold: "LexendExtraBold",
+    black: "LexendBlack",
   },
   helveticaNeue: {
     // iOS only font.
@@ -74,7 +71,7 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: fonts.montserratAlternates,
+  primary: fonts.lexend,
   /**
    * An alternate font used for perhaps titles and stuff.
    */
