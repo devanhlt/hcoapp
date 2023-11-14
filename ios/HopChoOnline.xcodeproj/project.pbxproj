@@ -24,26 +24,26 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = "HopChoOnline";
+			remoteInfo = HopChoOnline;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* HopChoOnlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HopChoOnlineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* HopChoOnlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HopChoOnlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* HopChoOnlineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HopChoOnlineTests.m"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* HopChoOnlineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HopChoOnlineTests.m; sourceTree = "<group>"; };
 		0B1DF0E87833F20706DDDB5A /* libPods-HopChoOnline-HopChoOnlineTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HopChoOnline-HopChoOnlineTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* HopChoOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HopChoOnline.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "HopChoOnline/AppDelegate.h"; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "HopChoOnline/AppDelegate.mm"; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "HopChoOnline/Images.xcassets"; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "HopChoOnline/Info.plist"; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "HopChoOnline/main.m"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* HopChoOnline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HopChoOnline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = HopChoOnline/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = HopChoOnline/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HopChoOnline/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HopChoOnline/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HopChoOnline/main.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HopChoOnline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopChoOnline.debug.xcconfig"; path = "Target Support Files/Pods-HopChoOnline/Pods-HopChoOnline.debug.xcconfig"; sourceTree = "<group>"; };
 		53FB1480ECF4CB2FCFCE6955 /* Pods-HopChoOnlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopChoOnlineTests.release.xcconfig"; path = "Target Support Files/Pods-HopChoOnlineTests/Pods-HopChoOnlineTests.release.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HopChoOnline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopChoOnline.release.xcconfig"; path = "Target Support Files/Pods-HopChoOnline/Pods-HopChoOnline.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-HopChoOnline-HopChoOnlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopChoOnline-HopChoOnlineTests.debug.xcconfig"; path = "Target Support Files/Pods-HopChoOnline-HopChoOnlineTests/Pods-HopChoOnline-HopChoOnlineTests.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "HopChoOnline/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HopChoOnline/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-HopChoOnline-HopChoOnlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopChoOnline-HopChoOnlineTests.release.xcconfig"; path = "Target Support Files/Pods-HopChoOnline-HopChoOnlineTests/Pods-HopChoOnline-HopChoOnlineTests.release.xcconfig"; sourceTree = "<group>"; };
 		951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-HopChoOnline/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		C428D8BECE5DAB8E7A85BA45 /* Pods-HopChoOnlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopChoOnlineTests.debug.xcconfig"; path = "Target Support Files/Pods-HopChoOnlineTests/Pods-HopChoOnlineTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				00E356F21AD99517003FC87E /* HopChoOnlineTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = "HopChoOnlineTests";
+			path = HopChoOnlineTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -99,7 +99,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = "HopChoOnline";
+			name = HopChoOnline;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -126,7 +126,7 @@
 			children = (
 				951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */,
 			);
-			name = "HopChoOnline";
+			name = HopChoOnline;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -223,8 +223,8 @@
 			);
 			dependencies = (
 			);
-			name = "HopChoOnline";
-			productName = "HopChoOnline";
+			name = HopChoOnline;
+			productName = HopChoOnline;
 			productReference = 13B07F961A680F5B00A75B9A /* HopChoOnline.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -471,7 +471,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "HopChoOnlineTests/Info.plist";
+				INFOPLIST_FILE = HopChoOnlineTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,7 +484,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dalatcowork.hco";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dalatcowork.hco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HopChoOnline.app/HopChoOnline";
@@ -497,7 +497,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = "HopChoOnlineTests/Info.plist";
+				INFOPLIST_FILE = HopChoOnlineTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,7 +510,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dalatcowork.hco";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dalatcowork.hco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HopChoOnline.app/HopChoOnline";
@@ -525,8 +525,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "HopChoOnline/Info.plist";
-             INFOPLIST_KEY_CFBundleDisplayName = "Hop Cho Online";
+				INFOPLIST_FILE = HopChoOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HopChoOnline;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,8 +537,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dalatcowork.hco";
-				PRODUCT_NAME = "HopChoOnline";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dalatcowork.hco;
+				PRODUCT_NAME = HopChoOnline;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -553,8 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = "HopChoOnline/Info.plist";
-             INFOPLIST_KEY_CFBundleDisplayName = "Hop Cho Online";
+				INFOPLIST_FILE = HopChoOnline/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HopChoOnline;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,8 +564,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dalatcowork.hco";
-				PRODUCT_NAME = "HopChoOnline";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dalatcowork.hco;
+				PRODUCT_NAME = HopChoOnline;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
