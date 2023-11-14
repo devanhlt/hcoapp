@@ -1,4 +1,4 @@
-package com.dalatcowork.hco.newarchitecture.components;
+package com.dalatcowork.hcoapp.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

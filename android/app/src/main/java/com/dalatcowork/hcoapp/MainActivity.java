@@ -1,4 +1,4 @@
-package com.dalatcowork.hco;
+package com.dalatcowork.hcoapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

@@ -1,4 +1,4 @@
-package com.dalatcowork.hco.newarchitecture;
+package com.dalatcowork.hcoapp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.dalatcowork.hco.BuildConfig;
-import com.dalatcowork.hco.newarchitecture.components.MainComponentsRegistry;
-import com.dalatcowork.hco.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.dalatcowork.hcoapp.BuildConfig;
+import com.dalatcowork.hcoapp.newarchitecture.components.MainComponentsRegistry;
+import com.dalatcowork.hcoapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
