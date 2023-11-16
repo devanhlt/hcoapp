@@ -1,27 +1,9 @@
-import React, { FC, useCallback, useMemo, useRef, useState } from "react"
+import React, { FC, useMemo, useRef, useState } from "react"
 import { observer } from "mobx-react-lite"
-import {
-  Alert,
-  Modal,
-  ScrollView,
-  TextInput,
-  TextStyle,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-  ViewStyle,
-} from "react-native"
+import { ScrollView, TextInput, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import {
-  Button,
-  Header,
-  Icon,
-  Screen,
-  Text,
-  TextField,
-  TextFieldAccessoryProps,
-} from "../../components"
+import { Button, Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
 import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
@@ -31,7 +13,6 @@ import { useNavigation } from "@react-navigation/native"
 import { useToast } from "react-native-styled-toast"
 import { toastErrorConfig, toastSuccessConfig } from "../../utils/toast"
 import { translate } from "../../i18n"
-import Recaptcha from "react-native-recaptcha-that-works"
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string().required("Chưa nhập tên đăng nhập"),

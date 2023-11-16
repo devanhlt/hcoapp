@@ -14261,11 +14261,6 @@ react-native-reanimated@~2.14.4:
     setimmediate "^1.0.5"
     string-hash-64 "^1.0.3"
 
-react-native-recaptcha-that-works@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-recaptcha-that-works/-/react-native-recaptcha-that-works-2.0.0.tgz#f39b7595948e59b0d75ef62eeb0bed4affe060a4"
-  integrity sha512-860M3qopVwpefEkjNsMyWW8LCA1Wp3dk0CKVPdaUOeUjo58m4oB7quVuiSvB5paOto7yuvy9Anwbk3rA2unvRQ==
-
 react-native-rename@^3.2.13:
   version "3.2.13"
   resolved "https://registry.yarnpkg.com/react-native-rename/-/react-native-rename-3.2.13.tgz#5a39fba2d20848443a3d21536e44e673e4b19e70"
