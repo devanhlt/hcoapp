@@ -1,8 +1,6 @@
-import { flow, getRoot, Instance, types } from "mobx-state-tree"
+/* eslint-disable no-throw-literal */
+import { flow, Instance, types } from "mobx-state-tree"
 import { AuthApi } from "../services/api/auth-api"
-import { getUniqueId } from "react-native-device-info"
-import { delay } from "../utils/delay"
-import { RootStore } from "./RootStore"
 import { Alert } from "react-native"
 
 export const AuthenticationStoreModel = types
@@ -49,37 +47,32 @@ export const AuthenticationStoreModel = types
     }
   })
   .actions((store) => ({
-    login: flow(function* login(userName: string, password: string): any {
-      if (userName.length === 0 || password.length === 0) {
-        console.log("Validated: failed!")
+    login: flow(function* login(username: string, password: string): any {
+      if (username.length === 0 || password.length === 0) {
+        throw { message: "Thiếu thông tin đăng nhập!" }
       } else {
         const authApi = new AuthApi()
-        const { authResult }: any = yield authApi.login({
-          userNameOrEmailAddress: userName,
+        return authApi.login({
+          username: username,
           password: password,
-          rememberClient: true,
         })
-        return authResult
+      }
+    }),
+    register: flow(function* register(username: string, password: string): any {
+      if (username.length === 0 || password.length === 0) {
+        throw { message: "Thiếu thông tin đăng ký!" }
+      } else {
+        const authApi = new AuthApi()
+        return authApi.register({
+          username: username,
+          password: password,
+        })
       }
     }),
     setAuthResult: flow(function* loginOTP({ accessToken, refreshToken, userId }: any): any {
       store.setAccessToken(accessToken)
       store.setRefreshTokenValue(refreshToken)
       store.setUserId(userId)
-    }),
-    sendOTP: flow(function* sendOTP(emailOrPhone: string): any {
-      const authApi = new AuthApi()
-      const response: any = yield authApi.senOTPTo(emailOrPhone)
-      store.setUserId(response.result.id)
-      console.log("API RESPONSE: ", store.userId)
-      return response
-    }),
-    verifyOTP: flow(function* verifyOTP(otp: string): any {
-      const authApi = new AuthApi()
-      const response: any = yield authApi.verifyOTP(store.userId, otp)
-      console.log("API RESPONSE: ", JSON.stringify(response))
-      store.setPasswordResetCode(response.result)
-      return response
     }),
     setNewPassword: flow(function* setNewPassword(newPassword: string): any {
       const authApi = new AuthApi()
@@ -106,22 +99,6 @@ export const AuthenticationStoreModel = types
       ])
       return response
     }),
-    sendLoginOTP: flow(function* sentLoginOTP(phone: string): any {
-      if (phone.length === 0) {
-        console.log("Validated: failed!")
-      } else {
-        const authApi = new AuthApi()
-        const response: any = yield authApi.sendLoginOTP({ phone })
-        console.log("API RESPONSE: ", JSON.stringify(response))
-        return response
-      }
-    }),
-    selectUser(user: any) {
-      store.setAccessToken(user.token)
-      store.setUser(user)
-      store.setRefreshTokenValue(user.refreshToken)
-      store.setProfile(user.profile)
-    },
     logout() {
       store.setAccessToken(undefined)
       store.setRefreshTokenValue(undefined)

@@ -18,6 +18,8 @@ import { EnvironmentsPopup } from "../../components/EnvironmentsPopup"
 import { colors, spacing } from "../../theme"
 import * as Application from "expo-application"
 import ProcessingView from "../../components/ProcessingView"
+import { useToast } from "react-native-styled-toast"
+import { toastErrorConfig, toastSuccessConfig } from "../../utils/toast"
 
 interface LoginScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Login">> {}
 
@@ -29,13 +31,14 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
   } = useStores()
   const authPasswordInput = useRef<TextInput>()
   const authPhoneInput = useRef<TextInput>()
-  const [username, setUsername] = useState("giang.test01")
-  const [password, setPassword] = useState("Test!234")
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const [isAuthPasswordHidden, setIsAuthPasswordHidden] = useState(true)
   const [visible, setVisible] = useState(false)
   const [loading, setLoading] = useState(false)
   const [appInfo, setAppInfo] = useState("")
   const [changeEnvTapTimes, setChangeEnvTapTimes] = useState(0)
+  const { toast } = useToast()
 
   useEffect(() => {
     setAppInfo(
@@ -73,19 +76,16 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
 
   const handleLogin = () => {
     setLoading(true)
-    login(username, password).then((result) => {
-      setLoading(false)
-      setAuthResult(result)
-    })
-    // login(username, password).then((res) => {
-    //   // @ts-ignore
-    //   navigation.navigate("SelectRole", { roles: res })
-    // })
-  }
-
-  const loginOTP = () => {
-    // @ts-ignore
-    navigation.navigate("SendOtp")
+    login(username, password)
+      .then((result) => {
+        setLoading(false)
+        toast(toastSuccessConfig("Đăng nhập thành công!"))
+        setAuthResult(result)
+      })
+      .catch((err) => {
+        setLoading(false)
+        toast(toastErrorConfig(err.message))
+      })
   }
 
   const forgotPassword = () => {
@@ -99,7 +99,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
   return (
     <Screen style={$root} preset="fixed">
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-        <Icon icon={"app_icon"} size={220} containerStyle={$appIcon} />
+        <Icon icon={"app_icon"} size={200} containerStyle={$appIcon} color="black" />
 
         <TextField
           ref={authPhoneInput}
@@ -107,11 +107,11 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
           onChangeText={setUsername}
           containerStyle={$textField}
           autoCapitalize="none"
-          autoComplete="email"
+          autoComplete="name"
           autoCorrect={false}
           keyboardType="phone-pad"
-          labelTx="loginScreen.emailFieldLabel"
-          placeholderTx="loginScreen.emailFieldPlaceholder"
+          labelTx="loginScreen.username"
+          placeholderTx="loginScreen.usernamePlaceholder"
           onSubmitEditing={() => authPasswordInput.current?.focus()}
           LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
           inputWrapperStyle={$inputWrapperStyle}
@@ -142,33 +142,22 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
 
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Button
-            testID="login-button"
-            tx="loginScreen.tapToSignInOtp"
-            style={$tapOTPButton}
-            textStyle={$loginOTPButton}
-            preset="reversed"
-            onPress={loginOTP}
+            testID="register-button"
+            tx="loginScreen.registerTitle"
+            style={$borderButtonContainer}
+            textStyle={$registerButton}
+            onPress={handleRegister}
           />
           <Button
             testID="login-button"
             tx="loginScreen.tapToSignIn"
-            style={$tapButton}
+            style={$fillButtonContainer}
             textStyle={$loginButton}
-            preset="reversed"
             onPress={handleLogin}
           />
         </View>
 
-        <Button
-          testID="register-button"
-          tx="loginScreen.registerTitle"
-          style={$tapButton}
-          textStyle={$loginButton}
-          preset="reversed"
-          onPress={handleRegister}
-        />
-
-        <Text text={appInfo} style={$version} onPress={changeEnvironment} />
+        <Text text={appInfo} style={$version} />
       </ScrollView>
       <Modal visible={visible}>
         <EnvironmentsPopup dismiss={() => setVisible(false)} />
@@ -214,14 +203,14 @@ const $forgotPassText: TextStyle = {
   textDecorationLine: "underline",
 }
 
-const $tapButton: ViewStyle = {
+const $fillButtonContainer: ViewStyle = {
   marginTop: spacing.lg,
   backgroundColor: colors.palette.neutral900,
   borderRadius: 8,
   flex: 0.47,
 }
 
-const $tapOTPButton: ViewStyle = {
+const $borderButtonContainer: ViewStyle = {
   marginTop: spacing.lg,
   backgroundColor: colors.palette.neutral100,
   borderColor: colors.palette.neutral900,
@@ -234,8 +223,9 @@ const $loginButton: TextStyle = {
   color: colors.palette.neutral100,
   fontSize: 18,
 }
-const $loginOTPButton: TextStyle = {
-  color: colors.palette.neutral900,
+
+const $registerButton: TextStyle = {
+  color: colors.palette.black,
   fontSize: 18,
 }
 
@@ -243,5 +233,5 @@ const $appIcon: ViewStyle = {
   alignContent: "center",
   justifyContent: "center",
   alignItems: "center",
-  paddingVertical: 0,
+  paddingVertical: 48,
 }

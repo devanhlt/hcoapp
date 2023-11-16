@@ -1,36 +1,76 @@
-import React, { FC, useMemo, useRef, useState } from "react"
+import React, { FC, useCallback, useMemo, useRef, useState } from "react"
 import { observer } from "mobx-react-lite"
-import { ScrollView, TextInput, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
+import {
+  Alert,
+  Modal,
+  ScrollView,
+  TextInput,
+  TextStyle,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import { Button, Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
+import {
+  Button,
+  Header,
+  Icon,
+  Screen,
+  Text,
+  TextField,
+  TextFieldAccessoryProps,
+} from "../../components"
 import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
 import { useStores } from "../../models"
 import ProcessingView from "../../components/ProcessingView"
+import { useNavigation } from "@react-navigation/native"
+import { useToast } from "react-native-styled-toast"
+import { toastErrorConfig, toastSuccessConfig } from "../../utils/toast"
+import { translate } from "../../i18n"
+import Recaptcha from "react-native-recaptcha-that-works"
 
-const ChangePasswordSchema = Yup.object().shape({
-  username: Yup.string().required("Chưa nhập họ và tên."),
-  phone: Yup.string().required("Chưa nhập số điện thoại."),
-  email: Yup.string().required("Chưa nhập email."),
-  password: Yup.string().required("Chưa nhập mật khẩu."),
-  refCode: Yup.string().required("Chưa nhập mã giới thiệu."),
+const RegisterSchema = Yup.object().shape({
+  username: Yup.string().required("Chưa nhập tên đăng nhập"),
+  password: Yup.string().required("Chưa nhập mật khẩu mới."),
+  repassword: Yup.string().test("passwords-match", "Mật khẩu chưa trùng nhau.", function (value) {
+    return this.parent.password === value
+  }),
 })
 
 interface RegisterScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Register">> {}
 
-export const RegisterScreen: FC<RegisterScreenProps> = observer(function ChangePasswordScreen() {
+export const RegisterScreen: FC<RegisterScreenProps> = observer(function RegisterScreen() {
   const {
-    authenticationStore: { changePassword },
+    authenticationStore: { register },
     loadingStore: { loading },
   } = useStores()
 
-  const authCurrentPasswordInput = useRef<TextInput>()
+  const recaptcha = useRef<any>()
+
+  const authPhoneInput = useRef<TextInput>()
   const authPasswordInput = useRef<TextInput>()
   const authRePasswordInput = useRef<TextInput>()
 
   const [isPasswordHidden, setIsPasswordHidden] = useState(true)
+  const [isRePasswordHidden, setIsRePasswordHidden] = useState(true)
+
+  const { goBack } = useNavigation()
+  const { toast } = useToast()
+
+  const handleRegister = (values) => {
+    register(values["username"], values["password"])
+      .then((res: any) => {
+        toast(toastSuccessConfig(translate("register_success")))
+        goBack()
+      })
+      .catch((error) => {
+        toast(toastErrorConfig(translate(error.message)))
+      })
+  }
 
   const PasswordRightAccessory = useMemo(
     () =>
@@ -51,6 +91,38 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function ChangeP
     [isPasswordHidden],
   )
 
+  const RePasswordRightAccessory = useMemo(
+    () =>
+      function PasswordRightAccessory(props: TextFieldAccessoryProps) {
+        return (
+          <TouchableOpacity
+            onPress={() => setIsRePasswordHidden(!isRePasswordHidden)}
+            style={props.style}
+          >
+            <Icon
+              size={18}
+              icon={isRePasswordHidden ? "eye" : "eye_slash"}
+              color={colors.palette.neutral800}
+            />
+          </TouchableOpacity>
+        )
+      },
+    [isRePasswordHidden],
+  )
+
+  const onVerify = (token) => {
+    console.log("success!", token)
+  }
+
+  const onExpire = () => {
+    console.warn("expired!")
+  }
+
+  const send = () => {
+    console.log("send!")
+    recaptcha.current && recaptcha.current.open()
+  }
+
   return (
     <Screen
       style={$root}
@@ -67,98 +139,77 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function ChangeP
       statusBarStyle="light-content"
     >
       <Formik
-        validationSchema={ChangePasswordSchema}
+        validationSchema={RegisterSchema}
         initialValues={{
           username: "",
-          phone: "",
-          email: "",
           password: "",
-          refCode: "",
+          repassword: "",
         }}
         onSubmit={(values: FormikValues): void | Promise<any> => {
-          changePassword(values["currpassword"], values["password"])
+          handleRegister(values)
         }}
       >
         {({ values, setFieldValue, submitForm, errors, touched }) => (
           <ScrollView style={{ flex: 1, padding: spacing.md }}>
             <TextField
-              value={values["name"]}
-              onChangeText={(v) => setFieldValue("name", v)}
+              ref={authPhoneInput}
+              value={values["username"]}
+              onChangeText={(v) => setFieldValue("username", v)}
               containerStyle={$textField}
               autoCapitalize="none"
+              autoComplete="name"
               autoCorrect={false}
-              labelTx="register.name"
-              placeholderTx="register.namePlaceholder"
+              keyboardType="phone-pad"
+              labelTx="loginScreen.username"
+              placeholderTx="loginScreen.usernamePlaceholder"
               onSubmitEditing={() => authPasswordInput.current?.focus()}
               LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
               inputWrapperStyle={$inputWrapperStyle}
               helper={errors.username && touched.username ? `${errors.username}` : undefined}
               HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
             />
+
             <TextField
-              value={values["phone"]}
-              onChangeText={(v) => setFieldValue("phone", v)}
-              containerStyle={$textField}
-              autoCapitalize="none"
-              autoCorrect={false}
-              labelTx="register.phone"
-              keyboardType="phone-pad"
-              placeholderTx="register.phonePlaceholder"
-              onSubmitEditing={() => authPasswordInput.current?.focus()}
-              LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
-              inputWrapperStyle={$inputWrapperStyle}
-              helper={errors.phone && touched.phone ? `${errors.phone}` : undefined}
-              HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
-            />
-            <TextField
-              value={values["email"]}
-              onChangeText={(v) => setFieldValue("email", v)}
-              containerStyle={$textField}
-              autoCapitalize="none"
-              autoCorrect={false}
-              labelTx="register.email"
-              placeholderTx="register.emailPlaceholder"
-              onSubmitEditing={() => authPasswordInput.current?.focus()}
-              LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
-              inputWrapperStyle={$inputWrapperStyle}
-              helper={errors.email && touched.email ? `${errors.email}` : undefined}
-              HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
-            />
-            <TextField
+              ref={authPasswordInput}
               value={values["password"]}
               onChangeText={(v) => setFieldValue("password", v)}
               containerStyle={$textField}
               autoCapitalize="none"
-              autoCorrect={false}
               autoComplete="password"
-              labelTx="register.password"
+              autoCorrect={false}
               secureTextEntry={isPasswordHidden}
-              placeholderTx="register.passwordPlaceholder"
+              labelTx="loginScreen.passwordFieldLabel"
+              placeholderTx="loginScreen.passwordFieldPlaceholder"
+              onSubmitEditing={() => authRePasswordInput.current?.focus()}
               RightAccessory={PasswordRightAccessory}
-              onSubmitEditing={() => authPasswordInput.current?.focus()}
               LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
               inputWrapperStyle={$inputWrapperStyle}
               helper={errors.password && touched.password ? `${errors.password}` : undefined}
               HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
             />
+
             <TextField
-              value={values["refCode"]}
-              onChangeText={(v) => setFieldValue("refCode", v)}
+              ref={authRePasswordInput}
+              value={values["repassword"]}
+              onChangeText={(v) => setFieldValue("repassword", v)}
               containerStyle={$textField}
               autoCapitalize="none"
+              autoComplete="password"
               autoCorrect={false}
-              labelTx="register.refCode"
-              placeholderTx="register.refCodePlaceholder"
-              onSubmitEditing={() => authPasswordInput.current?.focus()}
+              secureTextEntry={isRePasswordHidden}
+              labelTx="loginScreen.rePasswordFieldLabel"
+              placeholderTx="loginScreen.rePasswordFieldPlaceholder"
+              onSubmitEditing={submitForm}
+              RightAccessory={RePasswordRightAccessory}
               LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
               inputWrapperStyle={$inputWrapperStyle}
-              helper={errors.refCode && touched.refCode ? `${errors.refCode}` : undefined}
+              helper={errors.repassword && touched.repassword ? `${errors.repassword}` : undefined}
               HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
             />
 
             <Button
               testID="done-button"
-              tx="register.submit"
+              tx="common.confirm"
               style={$tapButton}
               textStyle={$loginButton}
               preset="reversed"
@@ -167,7 +218,7 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function ChangeP
           </ScrollView>
         )}
       </Formik>
-      {loading.changePassword && <ProcessingView isLoading={loading.changePassword} />}
+      {loading.register && <ProcessingView isLoading={loading.register} />}
     </Screen>
   )
 })
@@ -196,9 +247,4 @@ const $tapButton: ViewStyle = {
   marginTop: spacing.lg,
   backgroundColor: colors.palette.neutral900,
   borderRadius: 8,
-}
-
-const $contentContainer: ViewStyle = {
-  flex: 1,
-  alignItems: "center",
 }

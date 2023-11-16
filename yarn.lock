@@ -14261,6 +14261,11 @@ react-native-reanimated@~2.14.4:
     setimmediate "^1.0.5"
     string-hash-64 "^1.0.3"
 
+react-native-recaptcha-that-works@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-recaptcha-that-works/-/react-native-recaptcha-that-works-2.0.0.tgz#f39b7595948e59b0d75ef62eeb0bed4affe060a4"
+  integrity sha512-860M3qopVwpefEkjNsMyWW8LCA1Wp3dk0CKVPdaUOeUjo58m4oB7quVuiSvB5paOto7yuvy9Anwbk3rA2unvRQ==
+
 react-native-rename@^3.2.13:
   version "3.2.13"
   resolved "https://registry.yarnpkg.com/react-native-rename/-/react-native-rename-3.2.13.tgz#5a39fba2d20848443a3d21536e44e673e4b19e70"
@@ -14336,10 +14341,10 @@ react-native-web@^0.18.0:
     postcss-value-parser "^4.2.0"
     styleq "^0.1.2"
 
-react-native-webview@^13.3.1:
-  version "13.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.4.0.tgz#8cea2ba2b7c40813886eba7fec3575133e71b023"
-  integrity sha512-yJFfUNsFH7fetbDlhfk0WvxjyyvSZYlH8HRE0phE7EvakDUS1kyJpk6TBiL6KjH2+3Zc13N9SY4k1IUsZ6bZ9g==
+react-native-webview@^13.6.2:
+  version "13.6.2"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.6.2.tgz#0a9b18793e915add5b5dbdbf32509d7751b49167"
+  integrity sha512-QzhQ5JCU+Nf2W285DtvCZOVQy/MkJXMwNDYPZvOWQbAOgxJMSSO+BtqXTMA1UPugDsko6PxJ0TxSlUwIwJijDg==
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"

@@ -17,8 +17,6 @@ export type AppStackParamList = {
   DriveIn: undefined
   DriveOut: undefined
 
-  SendOtp: undefined
-  VerifyOtp: undefined
   Register: undefined
   ResetPassword: undefined
   ChangePassword: undefined
@@ -105,8 +103,6 @@ const AppStack = observer(function AppStack() {
       ) : (
         <>
           <Stack.Screen name="Login" component={Screens.LoginScreen} />
-          <Stack.Screen name="SendOtp" component={Screens.SendOtpScreen} />
-          <Stack.Screen name="VerifyOtp" component={Screens.VerifyOtpScreen} />
           <Stack.Screen name="Register" component={Screens.RegisterScreen} />
           <Stack.Screen name="ResetPassword" component={Screens.ResetPasswordScreen} />
         </>

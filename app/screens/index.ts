@@ -1,7 +1,5 @@
 // export other screens here
 export * from "./auth/LoginScreen"
-export * from "./auth/SendOtpScreen"
-export * from "./auth/VerifyOtpScreen"
 export * from "./auth/RegisterScreen"
 export * from "./auth/ResetPasswordScreen"
 export * from "./main/HomeScreen"

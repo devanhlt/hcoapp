@@ -46,7 +46,7 @@ interface ResetPasswordScreenProps
 export const ResetPasswordScreen: FC<ResetPasswordScreenProps> = observer(
   function ResetPasswordScreen() {
     const {
-      authenticationStore: { sendOTP, verifyOTP, setNewPassword },
+      authenticationStore: { setNewPassword },
       loadingStore: { loading },
     } = useStores()
 
@@ -64,13 +64,6 @@ export const ResetPasswordScreen: FC<ResetPasswordScreenProps> = observer(
 
     const handleOtp = (values) => {
       setPassword(values["password"])
-      sendOTP(values["emailOrPhone"]).then((res: any) => {
-        if (res.result) {
-          setVisibleOTP(true)
-        } else {
-          alert("Lỗi: " + res.error.message)
-        }
-      })
     }
 
     const PasswordRightAccessory = useMemo(

@@ -10,6 +10,8 @@ import { AppNavigator } from "./navigators"
 import { ErrorBoundary } from "./screens/ErrorScreen/ErrorBoundary"
 import { customFontsToLoad } from "./theme"
 import { configOf } from "./config"
+import { ToastProvider } from "react-native-styled-toast"
+import { TOAST_OFFSET } from "./utils/toast"
 
 if (__DEV__) {
   require("./devtools/ReactotronConfig.ts")
@@ -35,9 +37,11 @@ function App(props: AppProps) {
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <ErrorBoundary catchErrors={configOf(rootStore.environmentStore.currentEnv).catchErrors}>
-        <AppNavigator />
-      </ErrorBoundary>
+      <ToastProvider offset={TOAST_OFFSET} maxToasts={1}>
+        <ErrorBoundary catchErrors={configOf(rootStore.environmentStore.currentEnv).catchErrors}>
+          <AppNavigator />
+        </ErrorBoundary>
+      </ToastProvider>
     </SafeAreaProvider>
   )
 }
