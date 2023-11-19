@@ -59,6 +59,8 @@ const palette = {
 export const colors = {
   palette,
 
+  white: palette.neutral0,
+
   transparent: "rgba(0, 0, 0, 0)",
 
   primary: palette.primary800,
@@ -77,7 +79,7 @@ export const colors = {
 
   subtitle: palette.neutral600,
 
-  background: palette.neutral200,
+  background: palette.neutral100,
 
   border: palette.neutral400,
 
