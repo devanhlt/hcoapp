@@ -7,11 +7,8 @@ export const AuthenticationStoreModel = types
   .model("AuthenticationStore")
   .props({
     accessToken: types.maybe(types.string),
-    refreshTokenValue: types.maybe(types.string),
-    userId: types.maybe(types.number),
     passwordResetCode: types.maybe(types.string),
     user: types.frozen<any>({}),
-    profile: types.frozen<any>({}),
   })
   .views((store) => ({
     get isAuthenticated() {
@@ -22,57 +19,34 @@ export const AuthenticationStoreModel = types
     const setAccessToken = (value?: string) => {
       store.accessToken = value || undefined
     }
-    const setRefreshTokenValue = (value?: string) => {
-      store.refreshTokenValue = value || undefined
-    }
     const setUser = (value?: any) => {
       store.user = value
     }
-    const setUserId = (value?: any) => {
-      store.userId = value
-    }
-    const setPasswordResetCode = (value?: any) => {
-      store.passwordResetCode = value
-    }
-    const setProfile = (value?: any) => {
-      store.profile = value
-    }
     return {
-      setUserId,
       setAccessToken,
-      setRefreshTokenValue,
       setUser,
-      setProfile,
-      setPasswordResetCode,
     }
   })
   .actions((store) => ({
     login: flow(function* login(username: string, password: string): any {
       if (username.length === 0 || password.length === 0) {
-        throw { message: "Thiếu thông tin đăng nhập!" }
+        throw { message: "missing_login_informations" }
       } else {
         const authApi = new AuthApi()
-        return authApi.login({
-          username: username,
-          password: password,
-        })
+        return authApi.login({ username, password })
       }
     }),
     register: flow(function* register(username: string, password: string): any {
       if (username.length === 0 || password.length === 0) {
-        throw { message: "Thiếu thông tin đăng ký!" }
+        throw { message: "missing_login_informations" }
       } else {
         const authApi = new AuthApi()
-        return authApi.register({
-          username: username,
-          password: password,
-        })
+        return authApi.register({ username, password })
       }
     }),
-    setAuthResult: flow(function* loginOTP({ accessToken, refreshToken, userId }: any): any {
+    setAuthResult: flow(function* loginOTP({ accessToken, user }: any): any {
       store.setAccessToken(accessToken)
-      store.setRefreshTokenValue(refreshToken)
-      store.setUserId(userId)
+      store.setUser(user)
     }),
     setNewPassword: flow(function* setNewPassword(newPassword: string): any {
       const authApi = new AuthApi()
@@ -91,9 +65,7 @@ export const AuthenticationStoreModel = types
           text: "Đồng ý",
           onPress: () => {
             store.setAccessToken(undefined)
-            store.setRefreshTokenValue(undefined)
             store.setUser(undefined)
-            store.setProfile(undefined)
           },
         },
       ])
@@ -101,9 +73,7 @@ export const AuthenticationStoreModel = types
     }),
     logout() {
       store.setAccessToken(undefined)
-      store.setRefreshTokenValue(undefined)
       store.setUser(undefined)
-      store.setProfile(undefined)
     },
   }))
 

@@ -52,6 +52,6 @@ const $content: ViewStyle = {
   alignSelf: "center",
 }
 const $line: ViewStyle = {
-  backgroundColor: colors.palette.neutral200,
+  backgroundColor: colors.separator,
   height: 1,
 }

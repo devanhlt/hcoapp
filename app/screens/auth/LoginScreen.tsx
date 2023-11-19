@@ -11,7 +11,7 @@ import {
 } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../../components"
+import { Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../../components"
 import { useStores } from "../../models"
 import { useNavigation } from "@react-navigation/native"
 import { EnvironmentsPopup } from "../../components/EnvironmentsPopup"
@@ -20,6 +20,8 @@ import * as Application from "expo-application"
 import ProcessingView from "../../components/ProcessingView"
 import { useToast } from "react-native-styled-toast"
 import { toastErrorConfig, toastSuccessConfig } from "../../utils/toast"
+import { translate } from "../../i18n"
+import { Button } from "../../components/Button"
 
 interface LoginScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Login">> {}
 
@@ -37,7 +39,6 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
   const [visible, setVisible] = useState(false)
   const [loading, setLoading] = useState(false)
   const [appInfo, setAppInfo] = useState("")
-  const [changeEnvTapTimes, setChangeEnvTapTimes] = useState(0)
   const { toast } = useToast()
 
   useEffect(() => {
@@ -45,15 +46,6 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
       `${Application.applicationName}\nv${Application.nativeApplicationVersion}_${Application.nativeBuildVersion} - ${currentEnvironment}`,
     )
   }, [currentEnvironment])
-
-  const changeEnvironment = () => {
-    if (changeEnvTapTimes > 3) {
-      setChangeEnvTapTimes(0)
-      setVisible(true)
-    } else {
-      setChangeEnvTapTimes(changeEnvTapTimes + 1)
-    }
-  }
 
   const PasswordRightAccessory = useMemo(
     () =>
@@ -66,7 +58,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
             <Icon
               size={18}
               icon={isAuthPasswordHidden ? "eye" : "eye_slash"}
-              color={colors.palette.neutral800}
+              color={colors.lightContent}
             />
           </TouchableOpacity>
         )
@@ -84,7 +76,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
       })
       .catch((err) => {
         setLoading(false)
-        toast(toastErrorConfig(err.message))
+        toast(toastErrorConfig(translate(err.message)))
       })
   }
 
@@ -113,7 +105,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
           labelTx="loginScreen.username"
           placeholderTx="loginScreen.usernamePlaceholder"
           onSubmitEditing={() => authPasswordInput.current?.focus()}
-          LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+          LabelTextProps={{ style: { color: colors.lightContent } }}
           inputWrapperStyle={$inputWrapperStyle}
         />
 
@@ -130,7 +122,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
           placeholderTx="loginScreen.passwordFieldPlaceholder"
           onSubmitEditing={handleLogin}
           RightAccessory={PasswordRightAccessory}
-          LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+          LabelTextProps={{ style: { color: colors.lightContent } }}
           inputWrapperStyle={$inputWrapperStyle}
         />
 
@@ -173,7 +165,7 @@ const $root: ViewStyle = {
 }
 
 const $version: TextStyle = {
-  color: colors.palette.neutral600,
+  color: colors.subtitle,
   fontSize: 14,
   marginTop: 24,
   textAlign: "center",
@@ -184,10 +176,10 @@ const $textField: ViewStyle = {
 }
 
 const $inputWrapperStyle: ViewStyle = {
-  backgroundColor: colors.palette.white,
+  backgroundColor: colors.background,
   borderRadius: 8,
   borderWidth: 1,
-  borderColor: colors.palette.border,
+  borderColor: colors.border,
 }
 
 const $forgotPassView: ViewStyle = {
@@ -199,33 +191,33 @@ const $forgotPassView: ViewStyle = {
 
 const $forgotPassText: TextStyle = {
   fontSize: 16,
-  color: colors.palette.angry500,
+  color: colors.error,
   textDecorationLine: "underline",
 }
 
 const $fillButtonContainer: ViewStyle = {
   marginTop: spacing.lg,
-  backgroundColor: colors.palette.neutral900,
+  backgroundColor: colors.lightContent,
   borderRadius: 8,
   flex: 0.47,
 }
 
 const $borderButtonContainer: ViewStyle = {
   marginTop: spacing.lg,
-  backgroundColor: colors.palette.neutral100,
-  borderColor: colors.palette.neutral900,
+  backgroundColor: colors.background,
+  borderColor: colors.lightContent,
   borderWidth: 2,
   borderRadius: 8,
   flex: 0.47,
 }
 
 const $loginButton: TextStyle = {
-  color: colors.palette.neutral100,
+  color: colors.background,
   fontSize: 18,
 }
 
 const $registerButton: TextStyle = {
-  color: colors.palette.black,
+  color: colors.lightContent,
   fontSize: 18,
 }
 

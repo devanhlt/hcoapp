@@ -7,15 +7,11 @@ import * as Screens from "../screens"
 import { navigationRef } from "./navigationUtilities"
 import { colors } from "../theme"
 import { useStores } from "../models"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Icon } from "../components"
 
 export type AppStackParamList = {
   Login: undefined
   HomeTab: undefined
   Home: undefined
-  DriveIn: undefined
-  DriveOut: undefined
 
   Register: undefined
   ResetPassword: undefined
@@ -36,58 +32,6 @@ const AppStack = observer(function AppStack() {
     authenticationStore: { isAuthenticated },
   } = useStores()
 
-  const Tab = createBottomTabNavigator()
-
-  function HomeTabScreen() {
-    return (
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          headerShown: false,
-          tabBarStyle: {
-            paddingTop: 12,
-            backgroundColor: "white",
-          },
-          tabBarLabelStyle: {
-            paddingTop: 8,
-            paddingBottom: 8,
-          },
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName
-            switch (route.name) {
-              case "Home":
-                iconName = focused ? "home" : "home"
-                break
-              case "DriveIn":
-                iconName = focused ? "drive_in" : "drive_in"
-                break
-              case "DriveOut":
-                iconName = focused ? "drive_out" : "drive_out"
-                break
-              default:
-                iconName = "pin"
-                break
-            }
-            return <Icon icon={iconName} size={size} color={color} />
-          },
-          tabBarActiveTintColor: colors.palette.appblue,
-          tabBarInactiveTintColor: "gray",
-        })}
-      >
-        <Tab.Screen options={{ title: "Trang chủ" }} name="Home" component={Screens.HomeScreen} />
-        <Tab.Screen
-          options={{ title: "Xe vào" }}
-          name="DriveIn"
-          component={Screens.DriveInScreen}
-        />
-        <Stack.Screen
-          options={{ title: "Xe ra" }}
-          name="DriveOut"
-          component={Screens.DriveOutScreen}
-        />
-      </Tab.Navigator>
-    )
-  }
-
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false, navigationBarColor: colors.background }}
@@ -95,7 +39,7 @@ const AppStack = observer(function AppStack() {
     >
       {isAuthenticated ? (
         <>
-          <Stack.Screen name="HomeTab" component={HomeTabScreen} />
+          <Stack.Screen name="Home" component={Screens.HomeScreen} />
           <Stack.Screen name="ChangePassword" component={Screens.ChangePasswordScreen} />
           <Stack.Screen name="ProfileInformation" component={Screens.ProfileInformationScreen} />
           {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}

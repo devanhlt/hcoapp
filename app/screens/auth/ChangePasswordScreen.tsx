@@ -3,12 +3,13 @@ import { observer } from "mobx-react-lite"
 import { ScrollView, TextInput, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import { Button, Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
+import { Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
 import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
 import { useStores } from "../../models"
 import ProcessingView from "../../components/ProcessingView"
+import { Button } from "../../components/Button"
 
 const ChangePasswordSchema = Yup.object().shape({
   currpassword: Yup.string().required("Chưa nhập mật khẩu hiện tại."),
@@ -47,7 +48,7 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
               <Icon
                 size={18}
                 icon={isCurrentPasswordHidden ? "eye" : "eye_slash"}
-                color={colors.palette.neutral800}
+                color={colors.lightContent}
               />
             </TouchableOpacity>
           )
@@ -65,7 +66,7 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
               <Icon
                 size={18}
                 icon={isPasswordHidden ? "eye" : "eye_slash"}
-                color={colors.palette.neutral800}
+                color={colors.lightContent}
               />
             </TouchableOpacity>
           )
@@ -84,7 +85,7 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
               <Icon
                 size={18}
                 icon={isRePasswordHidden ? "eye" : "eye_slash"}
-                color={colors.palette.neutral800}
+                color={colors.lightContent}
               />
             </TouchableOpacity>
           )
@@ -99,12 +100,12 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
         headerComponent={
           <Header
             title="Đổi mật khẩu"
-            style={{ backgroundColor: colors.palette.appblue }}
-            textStyle={{ color: "white" }}
-            iconStyle={{ tintColor: "white" }}
+            style={{ backgroundColor: colors.primary }}
+            textStyle={{ color: colors.darkContent }}
+            iconStyle={{ tintColor: colors.darkContent }}
           />
         }
-        statusBarColor={colors.palette.appblue}
+        statusBarColor={colors.primary}
         statusBarStyle="light-content"
       >
         <Formik
@@ -133,7 +134,7 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
                 placeholderTx="loginScreen.currentPasswordFieldPlaceholder"
                 onSubmitEditing={() => authPasswordInput.current?.focus()}
                 RightAccessory={CurrentPasswordRightAccessory}
-                LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+                LabelTextProps={{ style: { color: colors.lightContent } }}
                 inputWrapperStyle={$inputWrapperStyle}
                 helper={
                   errors.currpassword && touched.currpassword ? `${errors.currpassword}` : undefined
@@ -153,7 +154,7 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
                 placeholderTx="loginScreen.newPasswordFieldPlaceholder"
                 onSubmitEditing={() => authRePasswordInput.current?.focus()}
                 RightAccessory={PasswordRightAccessory}
-                LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+                LabelTextProps={{ style: { color: colors.lightContent } }}
                 inputWrapperStyle={$inputWrapperStyle}
                 helper={errors.password && touched.password ? `${errors.password}` : undefined}
                 HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
@@ -172,7 +173,7 @@ export const ChangePasswordScreen: FC<ChangePasswordScreenProps> = observer(
                 placeholderTx="loginScreen.reNewPasswordFieldPlaceholder"
                 onSubmitEditing={submitForm}
                 RightAccessory={RePasswordRightAccessory}
-                LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+                LabelTextProps={{ style: { color: colors.lightContent } }}
                 inputWrapperStyle={$inputWrapperStyle}
                 helper={
                   errors.repassword && touched.repassword ? `${errors.repassword}` : undefined
@@ -206,24 +207,19 @@ const $textField: ViewStyle = {
 }
 
 const $inputWrapperStyle: ViewStyle = {
-  backgroundColor: colors.palette.white,
+  backgroundColor: colors.background,
   borderRadius: 8,
   borderWidth: 1,
-  borderColor: colors.palette.border,
+  borderColor: colors.border,
 }
 
 const $loginButton: TextStyle = {
-  color: colors.palette.neutral100,
+  color: colors.darkContent,
   fontSize: 18,
 }
 
 const $tapButton: ViewStyle = {
   marginTop: spacing.lg,
-  backgroundColor: colors.palette.neutral900,
+  backgroundColor: colors.primary,
   borderRadius: 8,
-}
-
-const $contentContainer: ViewStyle = {
-  flex: 1,
-  alignItems: "center",
 }

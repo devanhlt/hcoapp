@@ -12,7 +12,7 @@ const ProcessingView = ({ label = undefined, isLoading = false }) => {
             style={[
               StyleSheet.absoluteFill,
               {
-                backgroundColor: colors.palette.overlay50,
+                backgroundColor: colors.transparent50,
                 justifyContent: "center",
                 alignItems: "center",
               },
@@ -20,19 +20,19 @@ const ProcessingView = ({ label = undefined, isLoading = false }) => {
           >
             <View
               style={{
-                backgroundColor: colors.palette.overlay50,
+                backgroundColor: colors.transparent50,
                 borderRadius: 12,
                 padding: 12,
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <ActivityIndicator size={"small"} color={colors.palette.white} />
+              <ActivityIndicator size={"small"} color={colors.darkContent} />
               {label && (
                 <Text
-                  weight="normal"
+                  weight="regular"
                   size="xl"
-                  style={{ color: colors.palette.white, marginTop: 12 }}
+                  style={{ color: colors.darkContent, marginTop: 12 }}
                 >
                   {label}
                 </Text>

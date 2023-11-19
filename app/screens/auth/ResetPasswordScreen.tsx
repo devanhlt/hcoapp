@@ -13,21 +13,14 @@ import {
 } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import {
-  Button,
-  Header,
-  Icon,
-  Screen,
-  Text,
-  TextField,
-  TextFieldAccessoryProps,
-} from "../../components"
+import { Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
 import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
 import { useStores } from "../../models"
 import ProcessingView from "../../components/ProcessingView"
 import { useNavigation } from "@react-navigation/native"
+import { Button } from "../../components/Button"
 
 const ResetPasswordSchema = Yup.object().shape({
   emailOrPhone: Yup.string().required("Chưa nhập tên đăng nhập"),
@@ -111,12 +104,12 @@ export const ResetPasswordScreen: FC<ResetPasswordScreenProps> = observer(
         headerComponent={
           <Header
             title="Đặt lại mật khẩu"
-            style={{ backgroundColor: colors.palette.appblue }}
+            style={{ backgroundColor: colors.primary }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
-        statusBarColor={colors.palette.appblue}
+        statusBarColor={colors.primary}
         statusBarStyle="light-content"
       >
         <Formik
@@ -321,24 +314,19 @@ const $textField: ViewStyle = {
 }
 
 const $inputWrapperStyle: ViewStyle = {
-  backgroundColor: colors.palette.white,
+  backgroundColor: colors.background,
   borderRadius: 8,
   borderWidth: 1,
-  borderColor: colors.palette.border,
+  borderColor: colors.border,
 }
 
 const $loginButton: TextStyle = {
-  color: colors.palette.neutral100,
+  color: colors.darkContent,
   fontSize: 18,
 }
 
 const $tapButton: ViewStyle = {
   marginTop: spacing.lg,
-  backgroundColor: colors.palette.neutral900,
+  backgroundColor: colors.primary,
   borderRadius: 8,
-}
-
-const $contentContainer: ViewStyle = {
-  flex: 1,
-  alignItems: "center",
 }

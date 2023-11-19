@@ -1,7 +1,7 @@
 import { ToastConfig } from "react-native-styled-toast/dist/Toast"
-import { color } from "./color"
 import { Dimensions } from "react-native"
 import { spacing } from "./spacing"
+import { colors } from "../theme"
 
 export const TOAST_OFFSET =
   (Dimensions.get("window").height ? Dimensions.get("window").height : 812) * 0.8
@@ -9,7 +9,7 @@ export const TOAST_DEFAULT: ToastConfig = {
   message: "",
   toastStyles: {
     borderWidth: 0,
-    bg: color.palette.black,
+    bg: colors.background,
     alignSelf: "center",
     width: 0.9,
     borderRadius: 16,
@@ -17,7 +17,7 @@ export const TOAST_DEFAULT: ToastConfig = {
   iconColor: "white",
   iconFamily: "FontAwesome5",
   iconName: "dot-circle",
-  color: color.palette.white,
+  color: colors.title,
   hideCloseIcon: true,
   hideAccent: true,
 }
@@ -25,7 +25,7 @@ export const TOAST_SUCCESS: ToastConfig = {
   message: "",
   toastStyles: {
     borderWidth: 0,
-    bg: "#1890FF",
+    bg: colors.primary,
     alignSelf: "center",
     width: 0.9,
     borderRadius: 16,
@@ -33,7 +33,7 @@ export const TOAST_SUCCESS: ToastConfig = {
   iconColor: "white",
   iconFamily: "FontAwesome5",
   iconName: "check-circle",
-  color: color.palette.white,
+  color: colors.darkContent,
   hideCloseIcon: true,
   hideAccent: true,
   hideIcon: true,
@@ -42,7 +42,7 @@ export const TOAST_ERROR: ToastConfig = {
   message: "",
   toastStyles: {
     borderWidth: 0,
-    bg: color.palette.red,
+    bg: colors.error,
     alignSelf: "center",
     width: 0.9,
     borderRadius: 12,
@@ -50,7 +50,7 @@ export const TOAST_ERROR: ToastConfig = {
   iconColor: "white",
   iconFamily: "FontAwesome5",
   iconName: "times-circle",
-  color: color.palette.white,
+  color: colors.darkContent,
   hideCloseIcon: true,
   hideAccent: true,
   hideIcon: true,

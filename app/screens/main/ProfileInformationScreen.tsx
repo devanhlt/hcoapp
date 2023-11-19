@@ -3,10 +3,11 @@ import { observer } from "mobx-react-lite"
 import { TextStyle, View, ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import { Button, Header, Screen, Text } from "../../components"
+import { Header, Screen, Text } from "../../components"
 import { useNavigation } from "@react-navigation/native"
 import { useStores } from "../../models"
 import { colors, spacing } from "../../theme"
+import { Button } from "../../components/Button"
 
 interface ProfileInformationScreenProps
   extends NativeStackScreenProps<AppStackScreenProps<"ProfileInformation">> {}
@@ -30,12 +31,12 @@ export const ProfileInformationScreen: FC<ProfileInformationScreenProps> = obser
         headerComponent={
           <Header
             title="Cá nhân"
-            style={{ backgroundColor: colors.palette.appblue }}
+            style={{ backgroundColor: colors.primary }}
             textStyle={{ color: "white" }}
             iconStyle={{ tintColor: "white" }}
           />
         }
-        statusBarColor={colors.palette.appblue}
+        statusBarColor={colors.primary}
         statusBarStyle="light-content"
         safeAreaEdges={["bottom"]}
       >

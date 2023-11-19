@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite"
 import { ScrollView, TextInput, TextStyle, TouchableOpacity, ViewStyle } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { AppStackScreenProps } from "../../navigators"
-import { Button, Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
+import { Header, Icon, Screen, TextField, TextFieldAccessoryProps } from "../../components"
 import { colors, spacing } from "../../theme"
 import { Formik, FormikValues } from "formik"
 import * as Yup from "yup"
@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native"
 import { useToast } from "react-native-styled-toast"
 import { toastErrorConfig, toastSuccessConfig } from "../../utils/toast"
 import { translate } from "../../i18n"
+import { Button } from "../../components/Button"
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string().required("Chưa nhập tên đăng nhập"),
@@ -64,7 +65,7 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
             <Icon
               size={18}
               icon={isPasswordHidden ? "eye" : "eye_slash"}
-              color={colors.palette.neutral800}
+              color={colors.lightContent}
             />
           </TouchableOpacity>
         )
@@ -83,7 +84,7 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
             <Icon
               size={18}
               icon={isRePasswordHidden ? "eye" : "eye_slash"}
-              color={colors.palette.neutral800}
+              color={colors.lightContent}
             />
           </TouchableOpacity>
         )
@@ -111,12 +112,12 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
       headerComponent={
         <Header
           title="Đăng ký tài khoản"
-          style={{ backgroundColor: colors.palette.appblue }}
+          style={{ backgroundColor: colors.primary }}
           textStyle={{ color: "white" }}
           iconStyle={{ tintColor: "white" }}
         />
       }
-      statusBarColor={colors.palette.appblue}
+      statusBarColor={colors.primary}
       statusBarStyle="light-content"
     >
       <Formik
@@ -144,10 +145,10 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
               labelTx="loginScreen.username"
               placeholderTx="loginScreen.usernamePlaceholder"
               onSubmitEditing={() => authPasswordInput.current?.focus()}
-              LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+              LabelTextProps={{ style: { color: colors.title } }}
               inputWrapperStyle={$inputWrapperStyle}
               helper={errors.username && touched.username ? `${errors.username}` : undefined}
-              HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
+              HelperTextProps={{ style: { color: colors.error, fontSize: 14 } }}
             />
 
             <TextField
@@ -163,10 +164,10 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
               placeholderTx="loginScreen.passwordFieldPlaceholder"
               onSubmitEditing={() => authRePasswordInput.current?.focus()}
               RightAccessory={PasswordRightAccessory}
-              LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+              LabelTextProps={{ style: { color: colors.title } }}
               inputWrapperStyle={$inputWrapperStyle}
               helper={errors.password && touched.password ? `${errors.password}` : undefined}
-              HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
+              HelperTextProps={{ style: { color: colors.error, fontSize: 14 } }}
             />
 
             <TextField
@@ -182,16 +183,16 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
               placeholderTx="loginScreen.rePasswordFieldPlaceholder"
               onSubmitEditing={submitForm}
               RightAccessory={RePasswordRightAccessory}
-              LabelTextProps={{ style: { color: colors.palette.neutral900 } }}
+              LabelTextProps={{ style: { color: colors.title } }}
               inputWrapperStyle={$inputWrapperStyle}
               helper={errors.repassword && touched.repassword ? `${errors.repassword}` : undefined}
-              HelperTextProps={{ style: { color: "red", fontSize: 14 } }}
+              HelperTextProps={{ style: { color: colors.error, fontSize: 14 } }}
             />
 
             <Button
               testID="done-button"
-              tx="common.confirm"
               style={$tapButton}
+              tx={"common.confirm"}
               textStyle={$loginButton}
               preset="reversed"
               onPress={submitForm}
@@ -213,19 +214,19 @@ const $textField: ViewStyle = {
 }
 
 const $inputWrapperStyle: ViewStyle = {
-  backgroundColor: colors.palette.white,
+  backgroundColor: colors.background,
   borderRadius: 8,
   borderWidth: 1,
-  borderColor: colors.palette.border,
+  borderColor: colors.border,
 }
 
 const $loginButton: TextStyle = {
-  color: colors.palette.neutral100,
+  color: colors.background,
   fontSize: 18,
 }
 
 const $tapButton: ViewStyle = {
   marginTop: spacing.lg,
-  backgroundColor: colors.palette.neutral900,
+  backgroundColor: colors.primary,
   borderRadius: 8,
 }

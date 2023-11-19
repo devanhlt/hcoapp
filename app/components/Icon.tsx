@@ -9,6 +9,31 @@ import {
   View,
   ViewStyle,
 } from "react-native"
+import fontawesome from "@fortawesome/fontawesome"
+
+import {
+  faHeart,
+  faComment,
+  faBookmark,
+  faEllipsisV,
+  faComments,
+  faMapPin,
+  faLocationArrow,
+  faTags,
+  faCoins,
+} from "@fortawesome/fontawesome-free-solid"
+
+fontawesome.library.add(
+  faHeart,
+  faComment,
+  faBookmark,
+  faEllipsisV,
+  faComments,
+  faMapPin,
+  faLocationArrow,
+  faTags,
+  faCoins,
+)
 
 export type IconTypes = keyof typeof iconRegistry
 
@@ -115,8 +140,8 @@ export const iconRegistry = {
   flash: require("../../assets/icons/flash.png"),
   flash_off: require("../../assets/icons/flash_off.png"),
   search: require("../../assets/icons/search.png"),
-  drive_in: require("../../assets/icons/drive_in.png"),
-  drive_out: require("../../assets/icons/drive_out.png"),
+  plus: require("../../assets/icons/plus.png"),
+  add_promote: require("../../assets/icons/add_promote.png"),
   report: require("../../assets/icons/report.png"),
   home: require("../../assets/icons/home.png"),
   caret_down: require("../../assets/icons/caret_down.png"),

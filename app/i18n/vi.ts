@@ -65,6 +65,8 @@ const en = {
   unknowError: "Đã có lỗi xảy ra. Vui lòng thử lại sau.",
   username_existed: "Tên đăng nhập này đã được sử dụng.",
   register_success: "Đăng ký thành công, vui lòng đăng nhập để kích hoạt tài khoản.",
+  user_or_pwd_not_correct: "Tên đăng nhập hoặc mật khẩu không đúng.",
+  missing_login_informations: "Thiếu thông tin đăng nhập!",
 }
 
 export default en

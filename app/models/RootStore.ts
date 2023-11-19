@@ -3,7 +3,7 @@ import { EnvironmentStoreModel } from "./EnvironmentStore"
 import { AuthenticationStoreModel } from "./AuthenticationStore"
 import { LoadingStoreModel } from "./LoadingStore"
 import { AppSettingModel } from "./AppSetting"
-import { WarrantyModel } from "./Warranty"
+import { PostsModel } from "./Posts"
 
 /**
  * A RootStore model.
@@ -15,7 +15,7 @@ export const RootStoreModel = types
     authenticationStore: types.optional(AuthenticationStoreModel, {}),
     loadingStore: types.optional(LoadingStoreModel, {}),
     appStore: types.optional(AppSettingModel, {}),
-    warrantyStore: types.optional(WarrantyModel, {}),
+    postStore: types.optional(PostsModel, {}),
   })
   .actions((self) => ({
     cleanData: () => {
