@@ -317,8 +317,6 @@ PODS:
   - React-jsinspector (0.68.2)
   - React-logger (0.68.2):
     - glog
-  - react-native-blur (0.8.0):
-    - React
   - react-native-blurhash (1.1.11):
     - React-Core
   - react-native-geolocation-service (5.3.1):
@@ -518,7 +516,6 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
-  - react-native-blur (from `../node_modules/react-native-blur`)
   - react-native-blurhash (from `../node_modules/react-native-blurhash`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
@@ -640,8 +637,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
-  react-native-blur:
-    :path: "../node_modules/react-native-blur"
   react-native-blurhash:
     :path: "../node_modules/react-native-blurhash"
   react-native-geolocation-service:
@@ -754,7 +749,6 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b7b553412f2ec768fe6c8f27cd6bafdb9d8719e6
   React-jsinspector: c5989c77cb89ae6a69561095a61cce56a44ae8e8
   React-logger: a0833912d93b36b791b7a521672d8ee89107aff1
-  react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
   react-native-blurhash: a59e6bf8117a0304488ed576abd440f4b0777a8c
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-image-picker: 5fcac5a5ffcb3737837f0617d43fd767249290de

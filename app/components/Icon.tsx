@@ -22,6 +22,7 @@ import {
   faTags,
   faCoins,
   faCodeBranch,
+  faMapMarker,
 } from "@fortawesome/fontawesome-free-solid"
 
 fontawesome.library.add(
@@ -35,6 +36,7 @@ fontawesome.library.add(
   faTags,
   faCoins,
   faCodeBranch,
+  faMapMarker,
 )
 
 export type IconTypes = keyof typeof iconRegistry

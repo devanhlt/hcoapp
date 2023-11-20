@@ -21,7 +21,6 @@
     "storybook": "start-storybook -p 9001 -c ./storybook",
     "test": "jest",
     "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081",
-    "postinstall": "node ./bin/postInstall",
     "build-ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "build-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "clean": "react-native-clean-project",
@@ -29,7 +28,8 @@
     "gen-screen": "npx ignite-cli generate screen",
     "gen-component": "npx ignite-cli generate component",
     "gen-model": "npx ignite-cli generate model",
-    "xc": "xed -b ios"
+    "xc": "xed -b ios",
+    "postinstall": "node ./bin/postInstall && patch-package"
   },
   "dependencies": {
     "@expo-google-fonts/lexend": "^0.2.3",

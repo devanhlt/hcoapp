@@ -122,11 +122,11 @@ export const PostView = ({ postItem }: { postItem: any }) => {
             textStyle={{ fontWeight: "bold" }}
           />
           <Chip
-            label={postItem.address || "Liên hệ"}
+            label={postItem.address || "Chưa xác định"}
             onPress={() => {}}
             color={colors.white}
             backgroundColor={colors.transparent50}
-            icon={"location-arrow"}
+            icon={"map-marker"}
             textStyle={{ fontWeight: "bold" }}
           />
         </View>
