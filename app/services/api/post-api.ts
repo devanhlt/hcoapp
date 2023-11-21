@@ -18,4 +18,8 @@ export class PostApi {
   async listPost(params): Promise<any> {
     return this.baseApi.apiInstance.get("api/posts", params)
   }
+
+  async listComment(params): Promise<any> {
+    return this.baseApi.apiInstance.get("api/comments", params)
+  }
 }

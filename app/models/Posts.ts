@@ -13,6 +13,10 @@ export const PostsModel = types
       const postApi = new PostApi()
       return postApi.listPost({})
     }),
+    listComment: flow(function* listComment(params) {
+      const postApi = new PostApi()
+      return postApi.listComment(params)
+    }),
   })) // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export interface Posts extends Instance<typeof PostsModel> {}

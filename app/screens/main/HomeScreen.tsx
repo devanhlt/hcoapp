@@ -39,12 +39,16 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
     navNext("ProfileInformation")
   }
 
+  const onViewComments = (id, post) => {
+    navNext("Comment", { id, post })
+  }
+
   const renderFeedItem = ({ item }) => {
     switch (item.type) {
       case "ADS":
         break
       default:
-        return <PostView postItem={item} />
+        return <PostView postItem={item} viewComments={onViewComments} />
     }
   }
 
@@ -69,9 +73,8 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
           </TouchableOpacity>
         </View>
       </View>
-
+      <View style={{ height: 0.2, width: "100%", backgroundColor: colors.border }} />
       <FlatList
-        style={{ marginTop: 4 }}
         contentContainerStyle={{ paddingBottom: 64 }}
         showsVerticalScrollIndicator={false}
         ListHeaderComponentStyle={{ flex: 1 }}

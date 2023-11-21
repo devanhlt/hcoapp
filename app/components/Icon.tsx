@@ -30,6 +30,7 @@ import {
   faMapMarkerAlt,
   faCircle,
   faEye,
+  faPaperPlane,
 } from "@fortawesome/fontawesome-free-solid"
 
 fontawesome.library.add(
@@ -51,6 +52,7 @@ fontawesome.library.add(
   faMapMarkerAlt,
   faCircle,
   faEye,
+  faPaperPlane,
 )
 
 export type IconTypes = keyof typeof iconRegistry

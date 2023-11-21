@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { dateFormat, getFormatDate } from "../utils/date-util"
 import stc from "string-to-color"
 
-export const PostView = ({ postItem }: { postItem: any }) => {
+export const PostView = ({ postItem, viewComments }: { postItem: any; viewComments: any }) => {
   const renderComment = () => (
     <TouchableOpacity
       onPress={viewAllComments}
@@ -24,8 +24,14 @@ export const PostView = ({ postItem }: { postItem: any }) => {
     >
       <View style={{ flexDirection: "row" }}>
         <Text
-          text="Tuấn Anh: "
-          style={{ color: colors.title, fontSize: 14, lineHeight: 18, fontWeight: "bold" }}
+          text={postItem.name}
+          style={{
+            color: colors.title,
+            fontSize: 14,
+            lineHeight: 18,
+            fontWeight: "600",
+            marginRight: 4,
+          }}
         />
         <Text
           text={postItem.sumary}
@@ -38,7 +44,6 @@ export const PostView = ({ postItem }: { postItem: any }) => {
           color: colors.subtitle,
           fontSize: 14,
           lineHeight: 20,
-          textDecorationLine: "underline",
         }}
       />
     </TouchableOpacity>
@@ -46,6 +51,7 @@ export const PostView = ({ postItem }: { postItem: any }) => {
 
   const viewAllComments = () => {
     // navigate to list comment screen
+    viewComments && viewComments(postItem.id, postItem)
   }
 
   return (
@@ -204,7 +210,7 @@ export const PostView = ({ postItem }: { postItem: any }) => {
               color: colors.title,
               fontSize: 14,
               marginLeft: 2,
-              lineHeight: 16,
+              lineHeight: 20,
               textAlignVertical: "center",
             }}
             text={postItem.address || "Chưa xác định"}
