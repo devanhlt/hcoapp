@@ -38,7 +38,9 @@ export const Chip = ({
   )
 }
 
-const $chipIcon: ViewStyle = { marginRight: 4 }
+const $chipIcon: ViewStyle = {
+  marginRight: 4,
+}
 const $chipLabel: TextStyle = {
   fontSize: 12,
   lineHeight: 14,
@@ -49,7 +51,7 @@ const $chipLabel: TextStyle = {
 const $chipContainer: ViewStyle = {
   margin: 2,
   paddingVertical: 4,
-  paddingLeft: 8,
+  paddingLeft: 4,
   paddingRight: 8,
   borderWidth: 1,
   borderRadius: 99,

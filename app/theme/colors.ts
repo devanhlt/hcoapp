@@ -81,6 +81,8 @@ export const colors = {
 
   background: palette.neutral100,
 
+  backgroundHighlight: palette.accent100,
+
   border: palette.neutral400,
 
   separator: palette.neutral400,

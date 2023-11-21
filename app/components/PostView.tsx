@@ -1,5 +1,6 @@
-import React from "react"
-import { Image, TouchableOpacity, View, ViewStyle } from "react-native"
+/* eslint-disable react-native/no-inline-styles */
+import React, { useState } from "react"
+import { FlatList, Image, TouchableOpacity, View, ViewStyle } from "react-native"
 import { colors } from "../theme"
 import { Text } from "./Text"
 import { numberWithThousandSeparator } from "../utils/common"
@@ -11,42 +12,42 @@ import stc from "string-to-color"
 
 export const PostView = ({ postItem }: { postItem: any }) => {
   const renderComment = () => (
-    <View>
-      <Text
-        numberOfLines={3}
-        ellipsizeMode="tail"
-        style={{
-          color: colors.title,
-          fontSize: 14,
-          lineHeight: 18,
-          textAlignVertical: "center",
-          marginHorizontal: 4,
-          fontWeight: "700",
-          width: "100%",
-          paddingTop: 0,
-          paddingBottom: 0,
-          paddingHorizontal: 4,
-          marginTop: 12,
-        }}
-      >
-        Bình luận
-      </Text>
-      <TouchableOpacity
-        style={{
-          paddingHorizontal: 12,
-          paddingVertical: 4,
-          backgroundColor: colors.background,
-          margin: 4,
-          borderRadius: 99,
-        }}
-      >
+    <TouchableOpacity
+      onPress={viewAllComments}
+      style={{
+        padding: 8,
+        backgroundColor: colors.background,
+        marginVertical: 4,
+        marginHorizontal: 2,
+        borderRadius: 6,
+      }}
+    >
+      <View style={{ flexDirection: "row" }}>
         <Text
-          text="Xem mọi người đang nói gì..."
-          style={{ color: colors.subtitle, fontSize: 14 }}
+          text="Tuấn Anh: "
+          style={{ color: colors.title, fontSize: 14, lineHeight: 18, fontWeight: "bold" }}
         />
-      </TouchableOpacity>
-    </View>
+        <Text
+          text={postItem.sumary}
+          style={{ color: colors.title, fontSize: 14, lineHeight: 18 }}
+        />
+      </View>
+      <Text
+        text="Xem thêm các bình luận"
+        style={{
+          color: colors.subtitle,
+          fontSize: 14,
+          lineHeight: 20,
+          textDecorationLine: "underline",
+        }}
+      />
+    </TouchableOpacity>
   )
+
+  const viewAllComments = () => {
+    // navigate to list comment screen
+  }
+
   return (
     <View key={postItem.id} style={$postContainer}>
       <View
@@ -101,6 +102,7 @@ export const PostView = ({ postItem }: { postItem: any }) => {
             width: "100%",
             aspectRatio: 4 / 3,
             flexDirection: "row",
+            paddingHorizontal: 2,
           }}
         />
         <View
@@ -109,7 +111,7 @@ export const PostView = ({ postItem }: { postItem: any }) => {
             justifyContent: "space-between",
             position: "absolute",
             top: 4,
-            left: 0,
+            left: 4,
             right: 0,
           }}
         >
@@ -118,15 +120,7 @@ export const PostView = ({ postItem }: { postItem: any }) => {
             onPress={() => {}}
             color={colors.white}
             backgroundColor={colors.transparent50}
-            icon={"code-branch"}
-            textStyle={{ fontWeight: "bold" }}
-          />
-          <Chip
-            label={postItem.address || "Chưa xác định"}
-            onPress={() => {}}
-            color={colors.white}
-            backgroundColor={colors.transparent50}
-            icon={"map-marker"}
+            icon={"hashtag"}
             textStyle={{ fontWeight: "bold" }}
           />
         </View>
@@ -140,6 +134,46 @@ export const PostView = ({ postItem }: { postItem: any }) => {
           marginTop: 4,
         }}
       >
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingHorizontal: 4,
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text
+              ellipsizeMode="tail"
+              style={{
+                color: colors.primary,
+                fontSize: 16,
+                lineHeight: 16,
+                fontWeight: "700",
+              }}
+            >
+              {postItem.price != null ? numberWithThousandSeparator(postItem.price, ".") : "0"} đ
+            </Text>
+          </View>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TouchableOpacity
+              style={{ flexDirection: "row", alignItems: "center", marginRight: 12 }}
+            >
+              <Text
+                style={{ fontSize: 14, marginRight: 2, lineHeight: 16, color: colors.title }}
+                text="15"
+              />
+              <FontAwesomeIcon icon={"comments"} size={18} color={colors.title} />
+            </TouchableOpacity>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{ fontSize: 14, marginRight: 2, lineHeight: 16, color: colors.title }}
+                text="186"
+              />
+              <FontAwesomeIcon icon={"eye"} size={18} color={colors.title} />
+            </View>
+          </View>
+        </View>
         <Text
           numberOfLines={3}
           ellipsizeMode="tail"
@@ -148,39 +182,45 @@ export const PostView = ({ postItem }: { postItem: any }) => {
             fontSize: 16,
             lineHeight: 18,
             textAlignVertical: "center",
-            marginHorizontal: 4,
-            fontWeight: "700",
-            width: "100%",
-            paddingTop: 0,
-            paddingBottom: 0,
-          }}
-        >
-          {postItem.sumary}
-        </Text>
-        <Text
-          ellipsizeMode="tail"
-          style={{
-            color: colors.primary,
-            marginHorizontal: 4,
+            margin: 4,
             marginTop: 4,
-            marginBottom: 8,
-            fontSize: 16,
-            lineHeight: 16,
             fontWeight: "700",
-            width: "100%",
-            paddingTop: 0,
-            paddingBottom: 0,
           }}
         >
-          {numberWithThousandSeparator(postItem.price, ".")} đ
+          {postItem.title}
         </Text>
-
-        <View style={{ flexWrap: "wrap", flexDirection: "row" }}>
-          {postItem.tags.split(",").map((item) => {
-            return <Chip key={item} label={item} onPress={() => {}} color={stc(item)} />
-          })}
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            marginLeft: 2,
+            marginBottom: 4,
+          }}
+        >
+          <FontAwesomeIcon icon={"map-marker-alt"} size={14} color={colors.subtitle} />
+          <Text
+            style={{
+              color: colors.title,
+              fontSize: 14,
+              marginLeft: 2,
+              lineHeight: 16,
+              textAlignVertical: "center",
+            }}
+            text={postItem.address || "Chưa xác định"}
+          />
         </View>
         {renderComment()}
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={postItem.tags.split(",")}
+          renderItem={({ item }) => {
+            return (
+              <Chip key={item} label={item} onPress={() => {}} color={stc(item)} icon={"circle"} />
+            )
+          }}
+        />
       </View>
     </View>
   )

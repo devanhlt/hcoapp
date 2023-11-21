@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { Image, StyleSheet, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
 import React from "react"
 import { Blurhash } from "react-native-blurhash"
@@ -7,20 +8,20 @@ import { Text } from "./Text"
 export const MediaView = ({ style, medias }: { style: ViewStyle; medias: any }) => {
   return (
     <View style={style}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, borderRadius: 6, overflow: "hidden" }}>
         <Blurhash blurhash={medias[0].blurHash} style={StyleSheet.absoluteFill} />
         <Image source={{ uri: medias[0].url }} style={StyleSheet.absoluteFill} />
       </View>
       {medias[1] && (
-        <View style={{ flex: 1, marginLeft: 1 }}>
+        <View style={{ flex: 1, marginLeft: 2, borderRadius: 6, overflow: "hidden" }}>
           {medias[1] && (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, borderRadius: 6, overflow: "hidden" }}>
               <Blurhash blurhash={medias[1].blurHash} style={StyleSheet.absoluteFill} />
               <Image source={{ uri: medias[1].url }} style={StyleSheet.absoluteFill} />
             </View>
           )}
           {medias[2] && (
-            <View style={{ flex: 1, marginTop: 1 }}>
+            <View style={{ flex: 1, marginTop: 2, borderRadius: 6, overflow: "hidden" }}>
               <View style={{ flex: 1 }}>
                 <Blurhash blurhash={medias[2].blurHash} style={StyleSheet.absoluteFill} />
                 <Image source={{ uri: medias[2].url }} style={StyleSheet.absoluteFill} />
