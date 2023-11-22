@@ -87,11 +87,11 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
           </View>
           <View style={{ flex: 1, alignItems: "flex-start", marginLeft: 6, alignSelf: "center" }}>
             <Text
+              weight={"bold"}
               style={{
                 color: colors.title,
                 fontSize: 12,
                 lineHeight: 14,
-                fontWeight: "bold",
               }}
             >
               {item.userName}
@@ -136,7 +136,7 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
       statusBarColor={colors.primary}
       headerComponent={
         <Header
-          title="Bình luận"
+          title={post.sumary}
           style={{ backgroundColor: colors.primary }}
           textStyle={{ color: "white" }}
           iconStyle={{ tintColor: "white" }}

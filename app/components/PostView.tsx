@@ -24,6 +24,7 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
     >
       <Text numberOfLines={3}>
         <Text
+          weight={"semibold"}
           text={`${postItem.name} `}
           style={{
             color: colors.title,
@@ -80,11 +81,11 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
         </View>
         <View style={{ flex: 1, alignItems: "flex-start", marginLeft: 6, alignSelf: "center" }}>
           <Text
+            weight={"semibold"}
             style={{
               color: colors.title,
               fontSize: 12,
               lineHeight: 14,
-              fontWeight: "bold",
             }}
           >
             {postItem.name}
@@ -151,11 +152,11 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text
               ellipsizeMode="tail"
+              weight={"semibold"}
               style={{
                 color: colors.primary,
                 fontSize: 16,
                 lineHeight: 16,
-                fontWeight: "700",
               }}
             >
               {postItem.price != null ? numberWithThousandSeparator(postItem.price, ".") : "0"} đ
@@ -183,6 +184,7 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
         <Text
           numberOfLines={3}
           ellipsizeMode="tail"
+          weight={"semibold"}
           style={{
             color: colors.title,
             fontSize: 16,
@@ -190,7 +192,6 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
             textAlignVertical: "center",
             margin: 4,
             marginTop: 4,
-            fontWeight: "700",
           }}
         >
           {postItem.sumary}

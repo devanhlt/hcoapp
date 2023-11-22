@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import * as React from "react"
 import { ImageStyle, StyleProp, TextStyle, View, ViewStyle } from "react-native"
 import { observer } from "mobx-react-lite"
@@ -32,7 +33,12 @@ export const Header = observer(function Header(props: HeaderProps) {
   return (
     <View style={$styles}>
       <Icon icon={"back"} size={24} style={[{ margin: 8 }, iconStyle]} onPress={handleBack} />
-      <Text size={"lg"} weight={"normal"} style={[{ flex: 1, margin: 8 }, textStyle]}>
+      <Text
+        size={"lg"}
+        weight={"regular"}
+        style={[{ flex: 1, margin: 8 }, textStyle]}
+        numberOfLines={1}
+      >
         {title}
       </Text>
     </View>

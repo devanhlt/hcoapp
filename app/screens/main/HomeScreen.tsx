@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { observer } from "mobx-react-lite"
 import React, { FC, useEffect, useRef, useState } from "react"
 import { Image, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native"
@@ -61,7 +62,9 @@ export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen() {
     >
       <View style={$container}>
         <TouchableOpacity style={$addPostButton} onPress={openProfile}>
-          <Text style={$postButtonText}>Đăng bài</Text>
+          <Text weight={"bold"} style={$postButtonText}>
+            Đăng bài
+          </Text>
           <Icon icon="add_promote" size={36} color="white" style={{ marginLeft: 4 }} />
         </TouchableOpacity>
         <View style={{ flex: 1, flexDirection: "row", justifyContent: "flex-end" }}>
