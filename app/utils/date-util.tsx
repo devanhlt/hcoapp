@@ -8,7 +8,7 @@ export const dateFormat = {
   ShortDateDash: "DD - MM - YYYY",
   ShortDate: "DD/MM/YYYY",
   ShortDateDD: "dd/MM/yyyy",
-  LongDate: "HH:mm - DD/MM/YYYY",
+  LongDate: "HH:mm DD/MM/YYYY",
   TIME24H: "HH:mm:ss", // 14:21:20
   TIMEHHmm: "HH:mm",
   MMYYYY: "MM/YYYY",

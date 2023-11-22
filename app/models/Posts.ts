@@ -1,5 +1,6 @@
 import { Instance, SnapshotIn, SnapshotOut, flow, types } from "mobx-state-tree"
 import { PostApi } from "../services/api/post-api"
+import { delay } from "../utils/delay"
 
 /**
  * Model description here for TypeScript hints.
@@ -15,6 +16,7 @@ export const PostsModel = types
     }),
     listComment: flow(function* listComment(params) {
       const postApi = new PostApi()
+      yield delay(2000)
       return postApi.listComment(params)
     }),
   })) // eslint-disable-line @typescript-eslint/no-unused-vars

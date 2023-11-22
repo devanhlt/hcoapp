@@ -22,9 +22,9 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
         borderRadius: 6,
       }}
     >
-      <View style={{ flexDirection: "row" }}>
+      <Text numberOfLines={3}>
         <Text
-          text={postItem.name}
+          text={`${postItem.name} `}
           style={{
             color: colors.title,
             fontSize: 14,
@@ -34,12 +34,12 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
           }}
         />
         <Text
-          text={postItem.sumary}
-          style={{ color: colors.title, fontSize: 14, lineHeight: 18 }}
+          text={postItem.text}
+          style={{ color: colors.title, fontSize: 14, lineHeight: 18, flex: 1 }}
         />
-      </View>
+      </Text>
       <Text
-        text="Xem thêm các bình luận"
+        text="Xem bình luận"
         style={{
           color: colors.subtitle,
           fontSize: 14,
@@ -193,7 +193,7 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
             fontWeight: "700",
           }}
         >
-          {postItem.title}
+          {postItem.sumary}
         </Text>
         <View
           style={{

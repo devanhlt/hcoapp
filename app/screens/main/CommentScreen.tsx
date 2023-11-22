@@ -1,8 +1,16 @@
 /* eslint-disable react-native/no-color-literals */
 /* eslint-disable react-native/no-inline-styles */
 import { observer } from "mobx-react-lite"
-import React, { FC, useEffect, useRef, useState } from "react"
-import { TextInput, TouchableOpacity, View } from "react-native"
+import React, { FC, useEffect, useState } from "react"
+import {
+  ActivityIndicator,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native"
 import { Header, Screen, Text } from "../../components"
 import { colors } from "../../theme"
 import { AppStackScreenProps } from "../../navigators"
@@ -11,10 +19,10 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useNavigation } from "@react-navigation/native"
 import { FlatList } from "react-native-gesture-handler"
 import ProcessingView from "../../components/ProcessingView"
-import { Image } from "react-native"
 import { dateFormat, getFormatDate } from "../../utils/date-util"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
 import { isEmpty } from "lodash"
+import { useKeyboardOffsetChanged } from "../../utils/hooks/useKeyboardOffset"
 
 interface CommentScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Comment">> {}
 
@@ -26,6 +34,8 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
     postStore: { listComment },
   } = useStores()
   const { navigate } = useNavigation()
+  const offset = useKeyboardOffsetChanged()
+
   const [text, setText] = useState("")
   const [enableSend, setEnableSend] = useState(false)
   const [comments, setComments] = useState([
@@ -118,7 +128,10 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
   return (
     <Screen
       safeAreaEdges={["bottom"]}
-      style={{ backgroundColor: colors.background }}
+      style={{
+        backgroundColor: colors.background,
+        paddingBottom: Platform.OS === "android" ? offset : 0,
+      }}
       statusBarStyle={"dark-content"}
       statusBarColor={colors.primary}
       headerComponent={
@@ -140,6 +153,13 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
         ItemSeparatorComponent={() => (
           <View style={{ height: 8, backgroundColor: colors.background }} />
         )}
+        ListFooterComponent={() => {
+          if (loading.listComment) {
+            return <ActivityIndicator color={colors.transparent50} style={{ margin: 12 }} />
+          } else {
+            return <View />
+          }
+        }}
       />
       <View
         style={{
@@ -156,13 +176,14 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
         <TextInput
           style={{
             marginHorizontal: 12,
-            marginVertical: 8,
-            marginBottom: 12,
+            marginVertical: 12,
             flex: 1,
             maxHeight: 120,
             fontSize: 16,
             includeFontPadding: false,
             textAlignVertical: "center",
+            paddingBottom: 0,
+            paddingTop: 0,
           }}
           textAlignVertical="center"
           placeholder="Nhập tin nhắn"
@@ -170,6 +191,7 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
           value={text}
           numberOfLines={1}
           multiline={true}
+          maxLength={500}
         />
         <TouchableOpacity onPress={sendComment}>
           <FontAwesomeIcon
@@ -183,7 +205,6 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
           />
         </TouchableOpacity>
       </View>
-      {loading.getSetting && <ProcessingView isLoading={loading.getSetting} />}
     </Screen>
   )
 })
