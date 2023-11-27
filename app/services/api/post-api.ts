@@ -22,4 +22,8 @@ export class PostApi {
   async listComment(params): Promise<any> {
     return this.baseApi.apiInstance.get("api/comments", params)
   }
+
+  async sendComment(params): Promise<any> {
+    return this.baseApi.apiInstance.post("api/comments", params)
+  }
 }

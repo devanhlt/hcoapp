@@ -40,11 +40,12 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
         />
       </Text>
       <Text
-        text="Xem bình luận"
+        text={`Xem ${postItem.commentCount} thảo luận`}
         style={{
-          color: colors.subtitle,
+          color: colors.primaryLight,
           fontSize: 14,
           lineHeight: 20,
+          textDecorationLine: "underline",
         }}
       />
     </TouchableOpacity>
@@ -124,7 +125,9 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
         >
           <Chip
             label={postItem.category}
-            onPress={() => {}}
+            onPress={() => {
+              // open search
+            }}
             color={colors.white}
             backgroundColor={colors.transparent50}
             icon={"hashtag"}
@@ -164,11 +167,12 @@ export const PostView = ({ postItem, viewComments }: { postItem: any; viewCommen
           </View>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <TouchableOpacity
+              onPress={viewAllComments}
               style={{ flexDirection: "row", alignItems: "center", marginRight: 12 }}
             >
               <Text
                 style={{ fontSize: 14, marginRight: 2, lineHeight: 16, color: colors.title }}
-                text="15"
+                text={postItem.commentCount}
               />
               <FontAwesomeIcon icon={"comments"} size={18} color={colors.title} />
             </TouchableOpacity>

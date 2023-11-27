@@ -14,6 +14,9 @@ export const AuthenticationStoreModel = types
     get isAuthenticated() {
       return !!store.accessToken
     },
+    isMe(uid) {
+      return store.user.id === uid
+    },
   }))
   .actions((store) => {
     const setAccessToken = (value?: string) => {

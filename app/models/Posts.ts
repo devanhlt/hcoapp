@@ -16,8 +16,13 @@ export const PostsModel = types
     }),
     listComment: flow(function* listComment(params) {
       const postApi = new PostApi()
-      yield delay(2000)
+      yield delay(1000)
       return postApi.listComment(params)
+    }),
+    sendComment: flow(function* sendComment(params) {
+      const postApi = new PostApi()
+      yield delay(500)
+      return postApi.sendComment(params)
     }),
   })) // eslint-disable-line @typescript-eslint/no-unused-vars
 

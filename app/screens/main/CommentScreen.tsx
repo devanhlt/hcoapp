@@ -1,18 +1,18 @@
 /* eslint-disable react-native/no-color-literals */
 /* eslint-disable react-native/no-inline-styles */
 import { observer } from "mobx-react-lite"
-import React, { FC, useEffect, useState } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 import {
   ActivityIndicator,
   Image,
-  KeyboardAvoidingView,
   Platform,
+  RefreshControl,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native"
 import { Header, Screen, Text } from "../../components"
-import { colors } from "../../theme"
+import { colors, typography } from "../../theme"
 import { AppStackScreenProps } from "../../navigators"
 import { useStores } from "../../models"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
@@ -29,30 +29,38 @@ interface CommentScreenProps extends NativeStackScreenProps<AppStackScreenProps<
 export const CommentScreen: FC<CommentScreenProps> = observer(function CommentScreen({ route }) {
   const { id, post } = route.params as any
 
+  const firstComment = {
+    ...post,
+    userName: post.name,
+  }
+
   const {
     loadingStore: { loading },
-    postStore: { listComment },
+    postStore: { sendComment, listComment },
+    authenticationStore: { isMe },
   } = useStores()
+
   const { navigate } = useNavigation()
   const offset = useKeyboardOffsetChanged()
 
   const [text, setText] = useState("")
   const [enableSend, setEnableSend] = useState(false)
-  const [comments, setComments] = useState([
-    {
-      ...post,
-      userName: post.name,
-    },
-  ])
+  const [comments, setComments] = useState([])
 
-  useEffect(() => {
+  const listCommentRef = useRef<FlatList>()
+
+  const loadComments = () => {
     listComment({ ref_id: id })
       .then((res) => {
-        setComments([...comments, ...res.data])
+        setComments([firstComment, ...res.data])
       })
       .catch((err) => {
         console.log("LOGGGG", err)
       })
+  }
+
+  useEffect(() => {
+    loadComments()
   }, [])
 
   const onChangeText = (value) => {
@@ -60,67 +68,72 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
     setEnableSend(!isEmpty(value))
   }
 
-  const sendComment = () => {
-    // send comment
+  const onSendComment = () => {
+    sendComment({
+      ref_id: id,
+      text,
+    }).then(() => {
+      setText("")
+      loadComments()
+      setTimeout(() => {
+        listCommentRef.current && listCommentRef.current.scrollToEnd()
+      }, 500)
+    })
+  }
+
+  const onRefresh = () => {
+    loadComments()
   }
 
   const renderCommentItem = ({ item }) => {
     return (
       <View
         style={{
-          paddingVertical: 8,
-          paddingLeft: 8,
-          paddingRight: 12,
+          flexDirection: isMe(item.owner_id) ? "row-reverse" : "row",
+          alignItems: "flex-start",
         }}
       >
         <View
           style={{
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <View style={{ borderRadius: 99 }}>
-            <Image
-              source={{ uri: item.avatar }}
-              style={{ width: 28, aspectRatio: 1, borderRadius: 24 }}
-            />
-          </View>
-          <View style={{ flex: 1, alignItems: "flex-start", marginLeft: 6, alignSelf: "center" }}>
-            <Text
-              weight={"bold"}
-              style={{
-                color: colors.title,
-                fontSize: 12,
-                lineHeight: 14,
-              }}
-            >
-              {item.userName}
-            </Text>
-            <Text
-              style={{
-                color: colors.subtitle,
-                fontSize: 10,
-                lineHeight: 12,
-              }}
-            >
-              {getFormatDate(item.createdAt, dateFormat.LongDate)}
-            </Text>
-          </View>
-        </View>
-        <Text
-          style={{
-            paddingHorizontal: 12,
-            paddingVertical: 6,
-            backgroundColor: colors.white,
-            marginTop: 4,
-            borderRadius: 8,
+            borderRadius: 99,
+            marginHorizontal: 8,
             borderColor: colors.border,
-            borderWidth: 0.5,
-            overflow: "hidden",
           }}
         >
-          {item.text}
-        </Text>
+          <Image
+            source={{ uri: item.avatar }}
+            style={{ width: 28, aspectRatio: 1, borderRadius: 24 }}
+          />
+        </View>
+        <View style={{ flex: 1, alignItems: isMe(item.owner_id) ? "flex-end" : "flex-start" }}>
+          <Text
+            style={{
+              paddingHorizontal: 12,
+              paddingVertical: 6,
+              backgroundColor: isMe(item.owner_id) ? colors.primary : colors.white,
+              borderRadius: 8,
+              overflow: "hidden",
+              maxWidth: "80%",
+              color: isMe(item.owner_id) ? colors.white : colors.title,
+              fontSize: 14,
+              lineHeight: 20,
+            }}
+          >
+            {item.text}
+          </Text>
+          <Text
+            weight="light"
+            style={{
+              color: colors.subtitle,
+              fontSize: 10,
+              lineHeight: 12,
+              textAlign: "right",
+              margin: 2,
+            }}
+          >
+            {getFormatDate(item.createdAt, dateFormat.ShortDateTime)}
+          </Text>
+        </View>
       </View>
     )
   }
@@ -145,13 +158,15 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
     >
       <View style={{ height: 0.2, width: "100%", backgroundColor: colors.border }} />
       <FlatList
-        contentContainerStyle={{ paddingBottom: 24 }}
+        refreshControl={<RefreshControl refreshing={loading.listComment} onRefresh={onRefresh} />}
+        ref={listCommentRef}
+        contentContainerStyle={{ paddingBottom: 24, paddingTop: 12 }}
         showsVerticalScrollIndicator={false}
         ListHeaderComponentStyle={{ flex: 1 }}
         data={comments}
         renderItem={renderCommentItem}
         ItemSeparatorComponent={() => (
-          <View style={{ height: 8, backgroundColor: colors.background }} />
+          <View style={{ height: 4, backgroundColor: colors.background }} />
         )}
         ListFooterComponent={() => {
           if (loading.listComment) {
@@ -184,16 +199,17 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
             textAlignVertical: "center",
             paddingBottom: 0,
             paddingTop: 0,
+            fontFamily: typography.primary.regular,
           }}
           textAlignVertical="center"
-          placeholder="Nhập tin nhắn"
+          placeholder="Viết bình luận"
           onChangeText={onChangeText}
           value={text}
           numberOfLines={1}
           multiline={true}
           maxLength={500}
         />
-        <TouchableOpacity onPress={sendComment}>
+        <TouchableOpacity onPress={onSendComment}>
           <FontAwesomeIcon
             icon={"paper-plane"}
             size={20}
@@ -205,6 +221,7 @@ export const CommentScreen: FC<CommentScreenProps> = observer(function CommentSc
           />
         </TouchableOpacity>
       </View>
+      <ProcessingView isLoading={loading.sendComment} />
     </Screen>
   )
 })

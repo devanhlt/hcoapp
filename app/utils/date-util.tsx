@@ -9,6 +9,7 @@ export const dateFormat = {
   ShortDate: "DD/MM/YYYY",
   ShortDateDD: "dd/MM/yyyy",
   LongDate: "HH:mm DD/MM/YYYY",
+  ShortDateTime: "HH:mm DD/MM",
   TIME24H: "HH:mm:ss", // 14:21:20
   TIMEHHmm: "HH:mm",
   MMYYYY: "MM/YYYY",
