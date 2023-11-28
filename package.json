@@ -28,6 +28,8 @@
     "gen-screen": "npx ignite-cli generate screen",
     "gen-component": "npx ignite-cli generate component",
     "gen-model": "npx ignite-cli generate model",
+    "gen-app-icons": "npx ignite-cli@8.5.0 generate app-icon all",
+    "gen-splash": "npx ignite-cli@8.5.0 generate splash-screen 0D47A1",
     "xc": "xed -b ios",
     "postinstall": "node ./bin/postInstall && patch-package"
   },

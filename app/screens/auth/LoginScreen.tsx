@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { FC, useEffect, useMemo, useRef, useState } from "react"
 import { observer } from "mobx-react-lite"
 import {
@@ -10,10 +11,9 @@ import {
   ViewStyle,
 } from "react-native"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { AppStackScreenProps } from "../../navigators"
+import { AppStackScreenProps, navNext } from "../../navigators"
 import { Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../../components"
 import { useStores } from "../../models"
-import { useNavigation } from "@react-navigation/native"
 import { EnvironmentsPopup } from "../../components/EnvironmentsPopup"
 import { colors, spacing } from "../../theme"
 import * as Application from "expo-application"
@@ -26,7 +26,6 @@ import { Button } from "../../components/Button"
 interface LoginScreenProps extends NativeStackScreenProps<AppStackScreenProps<"Login">> {}
 
 export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen() {
-  const navigation = useNavigation()
   const {
     authenticationStore: { login, setAuthResult },
     environmentStore: { currentEnvironment },
@@ -81,17 +80,17 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
   }
 
   const forgotPassword = () => {
-    navigation.navigate("ResetPassword")
+    navNext("ResetPassword")
   }
 
   function handleRegister() {
-    navigation.navigate("Register")
+    navNext("Register")
   }
 
   return (
     <Screen style={$root} preset="fixed">
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-        <Icon icon={"app_icon"} size={200} containerStyle={$appIcon} color="black" />
+        <Icon icon={"app_icon"} size={200} containerStyle={$appIcon} />
 
         <TextField
           ref={authPhoneInput}
